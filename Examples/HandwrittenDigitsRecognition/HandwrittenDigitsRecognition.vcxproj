@@ -16,4 +16,8 @@
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfig
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A2F46E84-0778-42E2-B213-F5911F1500A2}</ProjectGuid>
+    <RootNamespace>Ha
