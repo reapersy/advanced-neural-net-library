@@ -114,4 +114,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-  
+    <ProjectReference Include="..\..\NeuralNetwork\NeuralNetwork.vcxproj">
+      <Project>{3c212b10-a663-40e7-831f-5661f70a6a3f}</Project>
+    </ProjectReference>
