@@ -54,3 +54,42 @@ std::pair<dataset, dataset> LoadData()
 {
 	return{
 		LoadFromFile(TRAINING_IMAGES, TRAINING_LABELS, 60000),
+		LoadFromFile(TEST_IMAGES, TEST_LABELS, 10000)
+	};
+}
+
+dataset LoadFromFile(const char * images, const char * labels, unsigned int capacity)
+{
+	std::ifstream imageFIle;
+	imageFIle.open(images, std::ios::binary);
+	imageFIle.seekg(16, std::ios::beg);
+	std::ifstream labelsFile;
+	labelsFile.open(labels, std::ios::binary);
+	labelsFile.seekg(8, std::ios::beg);
+	dataset trainData;
+	for (unsigned int i = 0; i < capacity; ++i)
+	{
+		unsigned char* image = new unsigned char[784];
+		imageFIle.read(reinterpret_cast<char*>(image), sizeof(unsigned char) * 784);
+		unsigned char label;
+		labelsFile.read((char*)&label, sizeof(label));
+		std::vector<double> data;
+		std::for_each(image, image + 784, [&data](double x) { data.push_back(x / 255.0); });
+		std::vector<double> result(10);
+		std::fill(result.begin(), result.end(), 0);
+		result[label] = 1;
+		trainData.push_back({ data , result });
+		delete[] image;
+	}
+	return trainData;
+}
+
+void PrintImage(const std::vector<double>& image)
+{
+	for (size_t i = 0; i < 28; ++i)
+	{
+		for (size_t j = 0; j < 28; ++j)
+			std::cout << (image[j + i * 28] > 0 ? "#" : " ");
+		std::cout << std::endl;
+	}
+}
