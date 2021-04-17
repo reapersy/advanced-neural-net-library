@@ -26,4 +26,10 @@ int main()
 	auto res = model.Eval({ 0, 1 });
 	std::cout << "0 XOR 1 = " << res.Value << std::endl;
 
-	auto res1 = model.
+	auto res1 = model.Eval({ 1, 0 });
+	std::cout << "1 XOR 0 = " << res1.Value << std::endl;
+
+	auto res2 = model.Eval({ 0, 0 });
+	std::cout << "0 XOR 0 = " << res2.Value << std::endl;
+
+	auto res3 = mod
