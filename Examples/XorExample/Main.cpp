@@ -21,4 +21,9 @@ int main()
 	model.Train(nn::optimizer::Adam(learningRate), epochs, trainingData, batchSize, nn::regularizer::NONE);
 
 	//model.SaveModel("model.bin");
-	//nn::NeuralNetwork mod
+	//nn::NeuralNetwork model = nn::NeuralNetwork::LoadModel("model.bin");
+	// Evaluation
+	auto res = model.Eval({ 0, 1 });
+	std::cout << "0 XOR 1 = " << res.Value << std::endl;
+
+	auto res1 = model.
