@@ -16,4 +16,6 @@ int main()
 
 	// Training
 	unsigned int epochs = 1000;
-	unsigned in
+	unsigned int batchSize = 1; // Na ovom primeru bas i nema nekog smisla batch i regularizer, ali testirao sam na MNIST datasetu lepo je radilo
+	double learningRate = 0.01;
+	mod
