@@ -29,4 +29,15 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 
 #ifdef _WINDLL // .dll or .lib
 #define PYTHON_API
-#
+#endif // _WINDLL
+
+namespace nn
+{
+	struct Output
+	{
+		double Value;
+		unsigned int Argmax;
+		Output(double v, unsigned int i) : Value(v), Argmax(i) {}
+	};
+
+	struct T
