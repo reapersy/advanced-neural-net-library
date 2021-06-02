@@ -23,4 +23,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 #include <unordered_map>
 #include "src/layers/Layer.h"
 #include "src/optimizers/Optimizers.h"
-#include "src/initial
+#include "src/initializers/WeightInitializers.h"
+#include "src/losses/LossFunctions.h"
+#include "src/regularizers/Regularizers.h"
+
+#ifdef _WINDLL // .dll or .lib
+#define PYTHON_API
+#
