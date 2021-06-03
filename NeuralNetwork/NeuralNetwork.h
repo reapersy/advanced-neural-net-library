@@ -44,4 +44,6 @@ namespace nn
 	{
 		std::vector<double> Inputs;
 		std::vector<double> Target;
-		TrainingData(const std::vector<double>& inputs, double target) : Inputs(inputs), Target({ tar
+		TrainingData(const std::vector<double>& inputs, double target) : Inputs(inputs), Target({ target }) {}
+		TrainingData(const std::vector<double>& inputs, const std::vector<double>& target) : Inputs(inputs), Target(target) {}
+		TrainingData& operator=(const Tr
