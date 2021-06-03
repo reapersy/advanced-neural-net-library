@@ -46,4 +46,10 @@ namespace nn
 		std::vector<double> Target;
 		TrainingData(const std::vector<double>& inputs, double target) : Inputs(inputs), Target({ target }) {}
 		TrainingData(const std::vector<double>& inputs, const std::vector<double>& target) : Inputs(inputs), Target(target) {}
-		TrainingData& operator=(const Tr
+		TrainingData& operator=(const TrainingData& data)
+		{
+			Inputs = data.Inputs;
+			Target = data.Target;
+			return *this;
+		}
+		TrainingData(const TrainingData& data) noexcept : Inputs(data.Inputs), Target(data.Tar
