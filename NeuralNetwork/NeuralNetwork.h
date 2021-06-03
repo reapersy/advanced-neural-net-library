@@ -40,4 +40,8 @@ namespace nn
 		Output(double v, unsigned int i) : Value(v), Argmax(i) {}
 	};
 
-	struct T
+	struct TrainingData
+	{
+		std::vector<double> Inputs;
+		std::vector<double> Target;
+		TrainingData(const std::vector<double>& inputs, double target) : Inputs(inputs), Target({ tar
