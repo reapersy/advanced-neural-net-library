@@ -62,4 +62,8 @@ namespace nn
 	private:
 		unsigned int m_InputSize;
 		std::vector<Layer> m_Layers;
-		std::shared_ptr<initialization::
+		std::shared_ptr<initialization::Initializer> m_WeightInitializer;
+		std::shared_ptr<loss::LossFunction> m_LossFunction;
+
+	public:
+		NeuralNetwork(unsigned int inputSize, std::vector<Layer>&& layers, i
