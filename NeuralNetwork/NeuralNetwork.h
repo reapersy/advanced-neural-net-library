@@ -52,4 +52,6 @@ namespace nn
 			Target = data.Target;
 			return *this;
 		}
-		TrainingData(const TrainingData& data) noexcept : Inputs(data.Inputs), Target(data.Tar
+		TrainingData(const TrainingData& data) noexcept : Inputs(data.Inputs), Target(data.Target) {}
+		TrainingData(TrainingData&& data) noexcept : Inputs(data.Inputs), Target(data.Target) {}
+		TrainingData(std::vector<double>&& inputs, std::vector<double>&& target) 
