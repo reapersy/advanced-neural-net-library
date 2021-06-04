@@ -54,4 +54,12 @@ namespace nn
 		}
 		TrainingData(const TrainingData& data) noexcept : Inputs(data.Inputs), Target(data.Target) {}
 		TrainingData(TrainingData&& data) noexcept : Inputs(data.Inputs), Target(data.Target) {}
-		TrainingData(std::vector<double>&& inputs, std::vector<double>&& target) 
+		TrainingData(std::vector<double>&& inputs, std::vector<double>&& target) noexcept : Inputs(inputs), Target(target) {}
+	};
+
+	class NeuralNetwork
+	{
+	private:
+		unsigned int m_InputSize;
+		std::vector<Layer> m_Layers;
+		std::shared_ptr<initialization::
