@@ -66,4 +66,7 @@ namespace nn
 		std::shared_ptr<loss::LossFunction> m_LossFunction;
 
 	public:
-		NeuralNetwork(unsigned int inputSize, std::vector<Layer>&& layers, i
+		NeuralNetwork(unsigned int inputSize, std::vector<Layer>&& layers, initialization::Type initializer, loss::Type lossFunction);
+		NeuralNetwork& operator=(NeuralNetwork&& net);
+		NeuralNetwork(NeuralNetwork&& net);
+		void Train(o
