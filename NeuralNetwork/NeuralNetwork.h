@@ -69,4 +69,4 @@ namespace nn
 		NeuralNetwork(unsigned int inputSize, std::vector<Layer>&& layers, initialization::Type initializer, loss::Type lossFunction);
 		NeuralNetwork& operator=(NeuralNetwork&& net);
 		NeuralNetwork(NeuralNetwork&& net);
-		void Train(o
+		void Train(optimizer::Optimizer& optimizer, unsigned int epochs, const std::vector<TrainingData>& trainingData, unsigned int batchSize = 1, regularizer::Type regularizerType = regular
