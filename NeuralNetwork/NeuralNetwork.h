@@ -72,4 +72,8 @@ namespace nn
 		void Train(optimizer::Optimizer& optimizer, unsigned int epochs, const std::vector<TrainingData>& trainingData, unsigned int batchSize = 1, regularizer::Type regularizerType = regularizer::NONE);
 		Output Eval(const std::vector<double>& input);
 		Output Eval(std::vector<double>&& input);
-		Output operator()(const std::vector<double>&
+		Output operator()(const std::vector<double>& input);
+		void SaveModel(const char* fileName) const;
+		static NeuralNetwork LoadModel(const char* fileName);
+	private:
+		Matrix FeedForward(const std::vector<double>
