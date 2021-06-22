@@ -78,4 +78,10 @@ namespace nn
 	private:
 		Matrix FeedForward(const std::vector<double>& input);
 		inline Matrix GetPreviousActivation(int layerIndex, const std::vector<double>& data) const;
-		std::unordered_map<unsigned int, std::pair<Matrix, Matrix>> Backpropagation(const 
+		std::unordered_map<unsigned int, std::pair<Matrix, Matrix>> Backpropagation(const std::vector<TrainingData>& batch, double& loss, unsigned int& numLoss);
+	};
+}
+
+#ifdef PYTHON_API
+#include "python/PythonAPI.h"
+#endif // PYTHON_API
