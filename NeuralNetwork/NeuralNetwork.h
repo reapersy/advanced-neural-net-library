@@ -76,4 +76,6 @@ namespace nn
 		void SaveModel(const char* fileName) const;
 		static NeuralNetwork LoadModel(const char* fileName);
 	private:
-		Matrix FeedForward(const std::vector<double>
+		Matrix FeedForward(const std::vector<double>& input);
+		inline Matrix GetPreviousActivation(int layerIndex, const std::vector<double>& data) const;
+		std::unordered_map<unsigned int, std::pair<Matrix, Matrix>> Backpropagation(const 
