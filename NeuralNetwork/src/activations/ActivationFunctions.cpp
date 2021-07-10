@@ -24,4 +24,11 @@ namespace nn
 {
 	namespace activation
 	{
-		void ActivationFunction::SaveActivationFunction(std::
+		void ActivationFunction::SaveActivationFunction(std::ofstream & out) const
+		{
+			Type type = GetType();
+			out.write((char*)&type, sizeof(type));
+		}
+	}
+
+	std::shared_ptr<activation::ActivationFunction> ActivationFunctionFa
