@@ -37,4 +37,8 @@ namespace nn
 		{
 		case activation::Type::SIGMOID:
 			return std::make_shared<activation::Sigmoid>();
-		case activat
+		case activation::Type::RELU:
+			return std::make_shared<activation::ReLu>();
+		case activation::Type::LEAKY_RELU:
+			return std::make_shared<activation::LeakyReLu>();
+		case activa
