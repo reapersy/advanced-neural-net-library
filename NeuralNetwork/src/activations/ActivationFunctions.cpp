@@ -31,4 +31,10 @@ namespace nn
 		}
 	}
 
-	std::shared_ptr<activation::ActivationFunction> ActivationFunctionFa
+	std::shared_ptr<activation::ActivationFunction> ActivationFunctionFactory::BuildActivationFunction(activation::Type type)
+	{
+		switch (type)
+		{
+		case activation::Type::SIGMOID:
+			return std::make_shared<activation::Sigmoid>();
+		case activat
