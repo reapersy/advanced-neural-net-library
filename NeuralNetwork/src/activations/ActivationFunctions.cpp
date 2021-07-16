@@ -41,4 +41,9 @@ namespace nn
 			return std::make_shared<activation::ReLu>();
 		case activation::Type::LEAKY_RELU:
 			return std::make_shared<activation::LeakyReLu>();
-		case activa
+		case activation::Type::ELU:
+			return std::make_shared<activation::ELu>();
+		case activation::Type::TANH:
+			return std::make_shared<activation::Tanh>();
+		case activation::Type::SOFTMAX:
+	
