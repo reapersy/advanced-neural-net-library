@@ -46,4 +46,9 @@ namespace nn
 		case activation::Type::TANH:
 			return std::make_shared<activation::Tanh>();
 		case activation::Type::SOFTMAX:
-	
+			return std::make_shared<activation::Softmax>();
+		default:
+			return nullptr;
+		}
+	}
+}
