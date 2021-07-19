@@ -45,4 +45,9 @@ namespace nn
 		private:
 			Matrix m_Activation;
 		public:
-		
+			Matrix Function(Matrix& x) override;
+			Matrix Derivative(Matrix& x) override;
+			Type GetType() const override;
+		};
+
+		class ReLu : public Activa
