@@ -28,4 +28,12 @@ namespace nn
 	{
 		enum Type
 		{
-			SIGMOID, RELU, LEAKY_RELU, ELU, TANH,
+			SIGMOID, RELU, LEAKY_RELU, ELU, TANH, SOFTMAX
+		};
+
+		class ActivationFunction
+		{
+		public:
+			virtual Matrix Function(Matrix& x) = 0;
+			virtual Matrix Derivative(Matrix& x) = 0;
+			virtual T
