@@ -36,4 +36,13 @@ namespace nn
 		public:
 			virtual Matrix Function(Matrix& x) = 0;
 			virtual Matrix Derivative(Matrix& x) = 0;
-			virtual T
+			virtual Type GetType() const = 0;
+			virtual void SaveActivationFunction(std::ofstream& out) const;
+		};
+
+		class Sigmoid : public ActivationFunction
+		{
+		private:
+			Matrix m_Activation;
+		public:
+		
