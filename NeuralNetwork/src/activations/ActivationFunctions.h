@@ -50,4 +50,12 @@ namespace nn
 			Type GetType() const override;
 		};
 
-		class ReLu : public Activa
+		class ReLu : public ActivationFunction
+		{
+		public:
+			Matrix Function(Matrix& x) override;
+			Matrix Derivative(Matrix& x) override;
+			Type GetType() const override;
+		};
+
+		class LeakyReLu : public A
