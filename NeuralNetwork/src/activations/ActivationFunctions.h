@@ -75,4 +75,11 @@ namespace nn
 			double alpha;
 		public:
 			ELu(double alpha = 0.1);
-			Matrix Function(Matri
+			Matrix Function(Matrix& x) override;
+			Matrix Derivative(Matrix& x) override;
+			Type GetType() const override;
+		};
+
+		class Tanh : public ActivationFunction
+		{
+		private
