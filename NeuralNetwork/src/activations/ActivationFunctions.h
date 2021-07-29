@@ -66,4 +66,13 @@ namespace nn
 			LeakyReLu(double alpha = 0.1);
 			Matrix Function(Matrix& x) override;
 			Matrix Derivative(Matrix& x) override;
-			Ty
+			Type GetType() const override;
+		};
+
+		class ELu : public ActivationFunction
+		{
+		private:
+			double alpha;
+		public:
+			ELu(double alpha = 0.1);
+			Matrix Function(Matri
