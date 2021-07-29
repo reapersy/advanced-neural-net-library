@@ -58,4 +58,12 @@ namespace nn
 			Type GetType() const override;
 		};
 
-		class LeakyReLu : public A
+		class LeakyReLu : public ActivationFunction
+		{
+		private:
+			double alpha;
+		public:
+			LeakyReLu(double alpha = 0.1);
+			Matrix Function(Matrix& x) override;
+			Matrix Derivative(Matrix& x) override;
+			Ty
