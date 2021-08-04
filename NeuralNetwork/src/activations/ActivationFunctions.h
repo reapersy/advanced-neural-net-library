@@ -104,4 +104,6 @@ namespace nn
 	class ActivationFunctionFactory
 	{
 	public:
-		static std::shared_ptr<activation::ActivationFunction> BuildActivationFunction(activation:
+		static std::shared_ptr<activation::ActivationFunction> BuildActivationFunction(activation::Type type);
+	};
+}
