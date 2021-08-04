@@ -96,4 +96,12 @@ namespace nn
 			Matrix m_Activation;
 		public:
 			Matrix Function(Matrix& x) override;
-			Matrix Derivative(Matrix& x) override
+			Matrix Derivative(Matrix& x) override;
+			Type GetType() const override;
+		};
+	}
+
+	class ActivationFunctionFactory
+	{
+	public:
+		static std::shared_ptr<activation::ActivationFunction> BuildActivationFunction(activation:
