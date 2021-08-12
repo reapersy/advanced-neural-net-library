@@ -39,4 +39,8 @@ namespace nn
 		}
 
 		Type ELu::GetType() const
-		
+		{
+			return ELU;
+		}
+	}
+}
