@@ -1,3 +1,4 @@
+
 ﻿/*
 Statically-linked deep learning library
 Copyright (C) 2020 Dušan Erdeljan, Nedeljko Vignjević
@@ -24,23 +25,19 @@ namespace nn
 {
 	namespace activation
 	{
-		LeakyReLu::LeakyReLu(double alpha) : alpha(alpha)
+		Matrix Sigmoid::Function(Matrix& x)
 		{
+			m_Activation = x.Map([](double a) { return 1 / (1 + exp(-a)); });
+			return m_Activation;
 		}
 
-		Matrix LeakyReLu::Function(Matrix& x)
+		Matrix Sigmoid::Derivative(Matrix& x)
 		{
-			return x.Map([alph=alpha](double a) { return a >= alph*a ? a : alph; });
+			return m_Activation.Map([](double a) { return a * (1 - a); });
 		}
-
-		Matrix LeakyReLu::Derivative(Matrix& x)
+		Type Sigmoid::GetType() const
 		{
-			return x.Map([alph=alpha](double a) { return a >= alph*a ? 1 : 0; });
-		}
-
-		Type LeakyReLu::GetType() const
-		{
-			return LEAKY_RELU;
+			return SIGMOID;
 		}
 	}
 }
