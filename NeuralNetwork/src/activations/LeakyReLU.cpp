@@ -33,4 +33,11 @@ namespace nn
 			return x.Map([alph=alpha](double a) { return a >= alph*a ? a : alph; });
 		}
 
-		Matrix LeakyReL
+		Matrix LeakyReLu::Derivative(Matrix& x)
+		{
+			return x.Map([alph=alpha](double a) { return a >= alph*a ? 1 : 0; });
+		}
+
+		Type LeakyReLu::GetType() const
+		{
+			r
