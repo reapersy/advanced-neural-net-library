@@ -24,4 +24,11 @@ namespace nn
 {
 	namespace activation
 	{
-		Matrix Softmax::Functio
+		Matrix Softmax::Function(Matrix& x)
+		{
+			double sum = 0.0;
+			Matrix::Map(x, [&sum](double a)
+			{
+				sum += exp(a); return a;
+			});
+			m_Activation = x.Map([sum](double a) { return exp
