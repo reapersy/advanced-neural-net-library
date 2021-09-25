@@ -31,4 +31,13 @@ namespace nn
 			{
 				sum += exp(a); return a;
 			});
-			m_Activation = x.Map([sum](double a) { return exp
+			m_Activation = x.Map([sum](double a) { return exp(a) / sum; });
+			return m_Activation;
+		}
+
+		Matrix Softmax::Derivative(Matrix& x)
+		{
+			return m_Activation.Map([](double a) { return a*(1 - a); });
+		}
+
+		Type Softmax::Get
