@@ -1,3 +1,4 @@
+
 ﻿/*
 Statically-linked deep learning library
 Copyright (C) 2020 Dušan Erdeljan, Nedeljko Vignjević
@@ -24,25 +25,20 @@ namespace nn
 {
 	namespace activation
 	{
-		Matrix Softmax::Function(Matrix& x)
+		Matrix Tanh::Function(Matrix& x)
 		{
-			double sum = 0.0;
-			Matrix::Map(x, [&sum](double a)
-			{
-				sum += exp(a); return a;
-			});
-			m_Activation = x.Map([sum](double a) { return exp(a) / sum; });
+			m_Activation = x.Map([](double a) { return (exp(a) - exp(-a)) / (exp(a) + exp(-a)); });
 			return m_Activation;
 		}
 
-		Matrix Softmax::Derivative(Matrix& x)
+		Matrix Tanh::Derivative(Matrix& x)
 		{
-			return m_Activation.Map([](double a) { return a*(1 - a); });
+			return m_Activation.Map([](double a) { return 1 - pow(a, 2); });
 		}
 
-		Type Softmax::GetType() const
+		Type Tanh::GetType() const
 		{
-			return SOFTMAX;
+			return TANH;
 		}
 	}
 }

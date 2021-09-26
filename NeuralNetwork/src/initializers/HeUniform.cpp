@@ -1,3 +1,4 @@
+
 ﻿/*
 Statically-linked deep learning library
 Copyright (C) 2020 Dušan Erdeljan, Nedeljko Vignjević
@@ -18,31 +19,22 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 */
 
-#include "ActivationFunctions.h"
+#include "WeightInitializers.h"
 
 namespace nn
 {
-	namespace activation
+	namespace initialization
 	{
-		Matrix Softmax::Function(Matrix& x)
+		void HeUniform::Initialize(Matrix& matrix) const
 		{
-			double sum = 0.0;
-			Matrix::Map(x, [&sum](double a)
+			std::random_device randomDevice;
+			std::mt19937 engine(randomDevice());
+			std::uniform_real_distribution<double> valueDistribution(0.0, 1.0);
+			double factor = 2.0 * sqrt(6.0 / matrix.GetWidth());
+			matrix.Map([factor, &valueDistribution, &engine](double x)
 			{
-				sum += exp(a); return a;
+				return (valueDistribution(engine) - 0.5) * factor;
 			});
-			m_Activation = x.Map([sum](double a) { return exp(a) / sum; });
-			return m_Activation;
 		}
-
-		Matrix Softmax::Derivative(Matrix& x)
-		{
-			return m_Activation.Map([](double a) { return a*(1 - a); });
-		}
-
-		Type Softmax::GetType() const
-		{
-			return SOFTMAX;
-		}
-	}
-}
+	};
+};
