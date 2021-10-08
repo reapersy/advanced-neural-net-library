@@ -31,4 +31,8 @@ namespace nn
 			std::uniform_real_distribution<double> valueDistribution(m_Min, m_Max);
 			matrix.Map([&valueDistribution, &engine](double x)
 			{
-				return valueDistribution(engine
+				return valueDistribution(engine);
+			});
+		}
+	};
+};
