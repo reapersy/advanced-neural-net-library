@@ -22,3 +22,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 
 namespace nn
 {
+	namespace initialization
+	{
+		void Random::Initialize(Matrix& matrix) const
+		{
+			std::random_device randomDevice;
+			std::mt19937 engine(randomD
