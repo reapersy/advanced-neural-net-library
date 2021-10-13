@@ -18,4 +18,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 */
 
-#include "We
+#include "WeightInitializers.h"
+
+namespace nn
+{
+	namespace initialization
+	{
+		void XavierUniform::Initialize(Matrix& matrix) const
+		{
+			std::random_device randomDevice;
+			std::mt1993
