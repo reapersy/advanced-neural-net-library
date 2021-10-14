@@ -27,4 +27,7 @@ namespace nn
 		void XavierUniform::Initialize(Matrix& matrix) const
 		{
 			std::random_device randomDevice;
-			std::mt1993
+			std::mt19937 engine(randomDevice());
+			std::uniform_real_distribution<double> valueDistribution(0.0, 1.0);
+			double factor = 2.0 * sqrt(6.0 / (matrix.GetWidth() + matrix.GetHeight()));
+			matrix.Map([fact
