@@ -34,4 +34,5 @@ namespace nn
 		Matrix Activation;
 		Matrix WeightedSum;
 	public:
-		Layer(un
+		Layer(unsigned int inputNeurons, unsigned int outputNeurons, activation::Type activationFunction);
+		void Initialize(const std::shared_ptr<initialization::
