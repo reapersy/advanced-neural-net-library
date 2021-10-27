@@ -25,4 +25,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 
 namespace nn
 {
-	clas
+	class Layer
+	{
+	public:
+		Matrix WeightMatrix;
+		Matrix BiasMatrix;
+		std::shared_ptr<activation::ActivationFunction> ActivationFunction;
+		Matrix Activation;
+		Matrix WeightedSum;
+	public:
+		Layer(un
