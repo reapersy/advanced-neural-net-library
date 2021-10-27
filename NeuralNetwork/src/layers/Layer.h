@@ -19,4 +19,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 */
 
 #pragma once
-#in
+#include "../math/Matrix.h"
+#include "../activations/ActivationFunctions.h"
+#include "../initializers/WeightInitializers.h"
+
+namespace nn
+{
+	clas
