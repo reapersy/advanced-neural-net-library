@@ -24,4 +24,7 @@ namespace nn
 {
 	namespace loss
 	{
-		double CrossEn
+		double CrossEntropy::GetLoss(const Matrix& prediction, const Matrix& target) const
+		{
+			std::vector<double> predictionVector = prediction.GetColumnVector();
+			std::vector<double> tar
