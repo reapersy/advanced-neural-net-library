@@ -30,4 +30,9 @@ namespace nn
 			std::vector<double> targetVector = target.GetColumnVector();
 			double sum = 0.0;
 			std::vector<double>::iterator tIt = targetVector.begin();
-			for (std::vector<double>::iterator pIt = predictionVector.
+			for (std::vector<double>::iterator pIt = predictionVector.begin(); pIt != predictionVector.end(); ++pIt, ++tIt)
+			{
+				double value = -*tIt*log(*pIt) - (1 - *tIt)*log(1 - *pIt);
+				if (!isnan(value)) sum += value;
+			}
+			return s
