@@ -35,4 +35,12 @@ namespace nn
 				double value = -*tIt*log(*pIt) - (1 - *tIt)*log(1 - *pIt);
 				if (!isnan(value)) sum += value;
 			}
-			return s
+			return sum;
+		}
+
+		Matrix CrossEntropy::GetDerivative(const Matrix& prediction, const Matrix& target) const
+		{
+			return prediction - target;
+		}
+
+		Type CrossEntro
