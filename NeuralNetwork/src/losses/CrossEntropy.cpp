@@ -43,4 +43,9 @@ namespace nn
 			return prediction - target;
 		}
 
-		Type CrossEntro
+		Type CrossEntropy::GetType() const
+		{
+			return CROSS_ENTROPY;
+		}
+	}
+}
