@@ -26,4 +26,7 @@ namespace nn
 	{
 		double HalfQuadratic::GetLoss(const Matrix& prediction, const Matrix& target) const
 		{
-			return Mat
+			return Matrix::Map(prediction - target, [](double x) { return x*x; }).Sum() / 2.0;
+		}
+
+		Matrix HalfQuadratic::GetDerivative(const Matrix& prediction, const Matrix& 
