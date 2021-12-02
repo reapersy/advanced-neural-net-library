@@ -18,4 +18,12 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 */
 
-#include "
+#include "LossFunctions.h"
+
+namespace nn
+{
+	namespace loss
+	{
+		double HalfQuadratic::GetLoss(const Matrix& prediction, const Matrix& target) const
+		{
+			return Mat
