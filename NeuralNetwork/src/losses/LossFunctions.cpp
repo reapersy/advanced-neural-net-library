@@ -26,4 +26,8 @@ namespace nn
 	{
 		Matrix LossFunction::Backward(Layer & layer, Matrix & error)
 		{
-			Matrix gradient = layer.ActivationF
+			Matrix gradient = layer.ActivationFunction->Derivative(layer.WeightedSum);
+			gradient.DotProduct(error);
+			return gradient;
+		}
+		void LossFunction::PropagateError(Layer & layer, Ma
