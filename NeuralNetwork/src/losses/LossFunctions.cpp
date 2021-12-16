@@ -36,4 +36,11 @@ namespace nn
 		}
 	}
 
-	std::shared_ptr<loss::LossFunction> LossFunctionFactory::BuildLossFunction(loss
+	std::shared_ptr<loss::LossFunction> LossFunctionFactory::BuildLossFunction(loss::Type type)
+	{
+		switch (type)
+		{
+		case loss::Type::MAE:
+			return std::make_shared<loss::MeanAbsoluteError>();
+		case loss::Type::MSE:
+			return std::ma
