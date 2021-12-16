@@ -30,4 +30,10 @@ namespace nn
 			gradient.DotProduct(error);
 			return gradient;
 		}
-		void LossFunction::PropagateError(Layer & layer, Ma
+		void LossFunction::PropagateError(Layer & layer, Matrix & error) const
+		{
+			error = Matrix::Transpose(layer.WeightMatrix) * error;
+		}
+	}
+
+	std::shared_ptr<loss::LossFunction> LossFunctionFactory::BuildLossFunction(loss
