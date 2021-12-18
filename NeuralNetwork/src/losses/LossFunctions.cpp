@@ -43,4 +43,8 @@ namespace nn
 		case loss::Type::MAE:
 			return std::make_shared<loss::MeanAbsoluteError>();
 		case loss::Type::MSE:
-			return std::ma
+			return std::make_shared<loss::MeanSquaredError>();
+		case loss::Type::QUADRATIC:
+			return std::make_shared<loss::Quadratic>();
+		case loss::Type::HALF_QUADRATIC:
+			return 
