@@ -51,4 +51,9 @@ namespace nn
 		case loss::Type::CROSS_ENTROPY:
 			return std::make_shared<loss::CrossEntropy>();
 		case loss::Type::NLL:
-			return
+			return std::make_shared<loss::NegativeLogLikelihood>();
+		default:
+			return nullptr;
+		}
+	}
+};
