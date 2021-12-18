@@ -80,3 +80,19 @@ namespace nn
 			double GetLoss(const Matrix& prediction, const Matrix& target) const override;
 			Matrix GetDerivative(const Matrix& prediction, const Matrix& target) const override;
 			Type GetType() const override;
+		};
+
+		class NegativeLogLikelihood : public LossFunction
+		{
+			double GetLoss(const Matrix& prediction, const Matrix& target) const override;
+			Matrix GetDerivative(const Matrix& prediction, const Matrix& target) const override;
+			Type GetType() const override;
+		};
+	}
+
+	class LossFunctionFactory
+	{
+	public:
+		static std::shared_ptr<loss::LossFunction> BuildLossFunction(loss::Type type);
+	};
+}
