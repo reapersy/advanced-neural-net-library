@@ -47,4 +47,8 @@ namespace nn
 		case loss::Type::QUADRATIC:
 			return std::make_shared<loss::Quadratic>();
 		case loss::Type::HALF_QUADRATIC:
-			return 
+			return std::make_shared<loss::HalfQuadratic>();
+		case loss::Type::CROSS_ENTROPY:
+			return std::make_shared<loss::CrossEntropy>();
+		case loss::Type::NLL:
+			return
