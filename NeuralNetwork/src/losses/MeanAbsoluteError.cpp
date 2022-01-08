@@ -29,4 +29,6 @@ namespace nn
 			return Matrix::Map(prediction - target, [](double x) { return abs(x); }).Sum();
 		}
 
-		Matrix MeanAbsolut
+		Matrix MeanAbsoluteError::GetDerivative(const Matrix& prediction, const Matrix& target) const
+		{
+			return Matrix::Map(prediction - target, [](double x) { return x >= 0 ? 
