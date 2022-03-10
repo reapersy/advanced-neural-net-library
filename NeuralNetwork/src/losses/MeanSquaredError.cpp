@@ -26,4 +26,7 @@ namespace nn
 	{
 		double MeanSquaredError::GetLoss(const Matrix& prediction, const Matrix& target) const
 		{
-			return Matrix::Map(prediction - target, [](double 
+			return Matrix::Map(prediction - target, [](double x) { return x*x; }).Sum() / (target.GetWidth() * target.GetHeight());
+		}
+
+		Matrix MeanSquaredError::GetDerivative(const Matrix& prediction, const Matrix& targ
