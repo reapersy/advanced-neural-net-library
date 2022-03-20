@@ -36,3 +36,7 @@ namespace nn
 
 		Type MeanSquaredError::GetType() const
 		{
+			return MSE;
+		}
+	}
+}
