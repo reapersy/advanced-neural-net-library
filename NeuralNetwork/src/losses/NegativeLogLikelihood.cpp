@@ -24,4 +24,7 @@ namespace nn
 {
 	namespace loss
 	{
-		double NegativeLogLikelihood::GetLoss(const Matrix&
+		double NegativeLogLikelihood::GetLoss(const Matrix& prediction, const Matrix& target) const
+		{
+			std::vector<double> predictionVector = prediction.GetColumnVector();
+			std::vector<double> targetVector = t
