@@ -27,4 +27,7 @@ namespace nn
 		double NegativeLogLikelihood::GetLoss(const Matrix& prediction, const Matrix& target) const
 		{
 			std::vector<double> predictionVector = prediction.GetColumnVector();
-			std::vector<double> targetVector = t
+			std::vector<double> targetVector = target.GetColumnVector();
+			double sum = 0.0;
+			std::vector<double>::iterator tIt = targetVector.begin();
+			for (std::vector<double>::iterator pIt = predictionVector.begin
