@@ -30,4 +30,12 @@ namespace nn
 			std::vector<double> targetVector = target.GetColumnVector();
 			double sum = 0.0;
 			std::vector<double>::iterator tIt = targetVector.begin();
-			for (std::vector<double>::iterator pIt = predictionVector.begin
+			for (std::vector<double>::iterator pIt = predictionVector.begin(); pIt != predictionVector.end(); ++pIt, ++tIt)
+			{
+				double value = *tIt*log(*pIt);
+				if (!isnan(value)) sum -= value;
+			}
+			return sum;
+		}
+
+		Matrix 
