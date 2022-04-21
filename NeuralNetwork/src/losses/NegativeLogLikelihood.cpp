@@ -45,3 +45,7 @@ namespace nn
 
 		Type NegativeLogLikelihood::GetType() const
 		{
+			return NLL;
+		}
+	}
+}
