@@ -38,4 +38,10 @@ namespace nn
 			return sum;
 		}
 
-		Matrix 
+		Matrix NegativeLogLikelihood::GetDerivative(const Matrix& prediction, const Matrix& target) const
+		{
+			return prediction - target;
+		}
+
+		Type NegativeLogLikelihood::GetType() const
+		{
