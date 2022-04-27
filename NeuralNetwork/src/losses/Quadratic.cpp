@@ -31,4 +31,12 @@ namespace nn
 
 		Matrix Quadratic::GetDerivative(const Matrix& prediction, const Matrix& target) const
 		{
-			return (pred
+			return (prediction - target) * 2.0;
+		}
+
+		Type Quadratic::GetType() const
+		{
+			return QUADRATIC;
+		}
+	}
+}
