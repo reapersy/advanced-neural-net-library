@@ -26,4 +26,9 @@ namespace nn
 	{
 		double Quadratic::GetLoss(const Matrix& prediction, const Matrix& target) const
 		{
-			return Matrix::
+			return Matrix::Map(prediction - target, [](double x) { return x*x; }).Sum();
+		}
+
+		Matrix Quadratic::GetDerivative(const Matrix& prediction, const Matrix& target) const
+		{
+			return (pred
