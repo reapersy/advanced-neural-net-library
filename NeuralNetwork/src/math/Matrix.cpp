@@ -33,4 +33,9 @@ Matrix::Matrix() : m_Rows(0), m_Columns(0), m_Matrix()
 {
 }
 
-Matrix::Matrix(unsigned int rows, unsigned int 
+Matrix::Matrix(unsigned int rows, unsigned int columns, double initValue) : m_Rows(rows), m_Columns(columns), m_Matrix(rows*columns)
+{
+	if (initValue == -1)
+		Randomize();
+	else
+		std::fill(m_Matrix.begin
