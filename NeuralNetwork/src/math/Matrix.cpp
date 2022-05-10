@@ -25,4 +25,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 #include <cstdlib>
 
 #ifdef _DEBUG
-#define LOG
+#define LOG(x) std::cout << x << std::endl
+#endif // _DEBUG
+
+
+Matrix::Matrix() : m_Rows(0), m_Columns(0), m_Matrix()
+{
+}
+
+Matrix::Matrix(unsigned int rows, unsigned int 
