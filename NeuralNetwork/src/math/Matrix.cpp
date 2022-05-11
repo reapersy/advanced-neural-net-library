@@ -38,4 +38,11 @@ Matrix::Matrix(unsigned int rows, unsigned int columns, double initValue) : m_Ro
 	if (initValue == -1)
 		Randomize();
 	else
-		std::fill(m_Matrix.begin
+		std::fill(m_Matrix.begin(), m_Matrix.end(), initValue);
+}
+
+Matrix::Matrix(const Matrix & matrix) : m_Rows(matrix.m_Rows), m_Columns(matrix.m_Columns), m_Matrix(matrix.m_Matrix)
+{
+}
+
+Matrix::M
