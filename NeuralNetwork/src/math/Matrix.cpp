@@ -50,4 +50,9 @@ Matrix::Matrix(Matrix && matrix) : m_Rows(matrix.m_Rows), m_Columns(matrix.m_Col
 
 }
 
-Matrix::Matrix(const std::vector<d
+Matrix::Matrix(const std::vector<double>& data) : m_Rows(data.size()), m_Columns(1), m_Matrix(data)
+{
+}
+
+#ifdef _DEBUG
+Matrix::Matrix(const std::vector<std::vector<double>>& matrix) : m_Rows(matrix.size()), m_Co
