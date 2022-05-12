@@ -45,4 +45,9 @@ Matrix::Matrix(const Matrix & matrix) : m_Rows(matrix.m_Rows), m_Columns(matrix.
 {
 }
 
-Matrix::M
+Matrix::Matrix(Matrix && matrix) : m_Rows(matrix.m_Rows), m_Columns(matrix.m_Columns), m_Matrix(std::move(matrix.m_Matrix))
+{
+
+}
+
+Matrix::Matrix(const std::vector<d
