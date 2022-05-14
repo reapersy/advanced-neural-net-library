@@ -59,4 +59,15 @@ Matrix::Matrix(const std::vector<std::vector<double>>& matrix) : m_Rows(matrix.s
 {
 	for (unsigned int i = 0; i < m_Rows; ++i)
 	{
-		for (unsigned int j = 0; j < m_Column
+		for (unsigned int j = 0; j < m_Columns; ++j)
+		{
+			(*this)(i, j) = matrix[i][j];
+		}
+	}
+}
+#endif // _DEBUG
+
+
+Matrix & Matrix::operator=(const Matrix & matrix)
+{
+	m_Rows = matrix.m_Rows; m_Columns = matrix.
