@@ -55,4 +55,8 @@ Matrix::Matrix(const std::vector<double>& data) : m_Rows(data.size()), m_Columns
 }
 
 #ifdef _DEBUG
-Matrix::Matrix(const std::vector<std::vector<double>>& matrix) : m_Rows(matrix.size()), m_Co
+Matrix::Matrix(const std::vector<std::vector<double>>& matrix) : m_Rows(matrix.size()), m_Columns(matrix[0].size()), m_Matrix(matrix.size()*matrix[0].size())
+{
+	for (unsigned int i = 0; i < m_Rows; ++i)
+	{
+		for (unsigned int j = 0; j < m_Column
