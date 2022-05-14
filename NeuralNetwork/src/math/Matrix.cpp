@@ -70,4 +70,11 @@ Matrix::Matrix(const std::vector<std::vector<double>>& matrix) : m_Rows(matrix.s
 
 Matrix & Matrix::operator=(const Matrix & matrix)
 {
+	m_Rows = matrix.m_Rows; m_Columns = matrix.m_Columns;
+	m_Matrix = matrix.m_Matrix;
+	return *this;
+}
+
+Matrix & Matrix::operator=(Matrix && matrix)
+{
 	m_Rows = matrix.m_Rows; m_Columns = matrix.
