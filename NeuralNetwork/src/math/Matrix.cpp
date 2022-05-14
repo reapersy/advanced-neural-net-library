@@ -77,4 +77,15 @@ Matrix & Matrix::operator=(const Matrix & matrix)
 
 Matrix & Matrix::operator=(Matrix && matrix)
 {
-	m_Rows = matrix.m_Rows; m_Columns = matrix.
+	m_Rows = matrix.m_Rows; m_Columns = matrix.m_Columns; m_Matrix = std::move(matrix.m_Matrix);
+	return *this;
+}
+
+Matrix::~Matrix()
+{
+}
+
+double Matrix::Sum() const
+{
+	double sum = 0.0;
+	return std::accumulate(m_Matri
