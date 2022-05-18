@@ -88,4 +88,12 @@ Matrix::~Matrix()
 double Matrix::Sum() const
 {
 	double sum = 0.0;
-	return std::accumulate(m_Matri
+	return std::accumulate(m_Matrix.begin(), m_Matrix.end(), sum);
+}
+
+void Matrix::Randomize(double min, double max)
+{
+
+	std::random_device randomDevice;
+	std::mt19937 engine(randomDevice());
+	std::uniform_r
