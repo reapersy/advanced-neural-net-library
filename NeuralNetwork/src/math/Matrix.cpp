@@ -96,4 +96,11 @@ void Matrix::Randomize(double min, double max)
 
 	std::random_device randomDevice;
 	std::mt19937 engine(randomDevice());
-	std::uniform_r
+	std::uniform_real_distribution<double> valueDistribution(min, max);
+	for (unsigned int i = 0; i < m_Rows*m_Columns; ++i)
+	{
+		m_Matrix[i] = valueDistribution(engine);
+	}
+}
+
+v
