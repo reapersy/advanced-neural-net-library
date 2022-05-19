@@ -103,4 +103,13 @@ void Matrix::Randomize(double min, double max)
 	}
 }
 
-v
+void Matrix::ZeroOut()
+{
+	std::fill(m_Matrix.begin(), m_Matrix.end(), 0);
+}
+
+std::vector<double> Matrix::GetColumnVector() const
+{
+#ifdef _DEBUG
+	if (m_Columns != 1)
+		throw Matr
