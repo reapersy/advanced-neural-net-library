@@ -112,4 +112,9 @@ std::vector<double> Matrix::GetColumnVector() const
 {
 #ifdef _DEBUG
 	if (m_Columns != 1)
-		throw Matr
+		throw MatrixError("Number of columns has to be 1 in order to make column vector!");
+#endif // _DEBUG
+	return m_Matrix;
+}
+
+void Matrix::SaveMatrix(std::ofstream & o
