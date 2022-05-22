@@ -117,4 +117,8 @@ std::vector<double> Matrix::GetColumnVector() const
 	return m_Matrix;
 }
 
-void Matrix::SaveMatrix(std::ofstream & o
+void Matrix::SaveMatrix(std::ofstream & outfile) const
+{
+	outfile.write((char*)(&m_Rows), sizeof(m_Rows));
+	outfile.write((char*)(&m_Columns), sizeof(m_Columns));
+	outfile.write((char*)&m_Matrix[0], sizeo
