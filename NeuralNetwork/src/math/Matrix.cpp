@@ -121,4 +121,11 @@ void Matrix::SaveMatrix(std::ofstream & outfile) const
 {
 	outfile.write((char*)(&m_Rows), sizeof(m_Rows));
 	outfile.write((char*)(&m_Columns), sizeof(m_Columns));
-	outfile.write((char*)&m_Matrix[0], sizeo
+	outfile.write((char*)&m_Matrix[0], sizeof(double)*m_Rows*m_Columns);
+}
+
+double & Matrix::operator()(unsigned int row, unsigned int column)
+{
+#ifdef _DEBUG
+	if ((column + row*m_Columns) >= m_Rows*m_Columns)
+	
