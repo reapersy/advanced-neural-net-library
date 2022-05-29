@@ -128,4 +128,9 @@ double & Matrix::operator()(unsigned int row, unsigned int column)
 {
 #ifdef _DEBUG
 	if ((column + row*m_Columns) >= m_Rows*m_Columns)
-	
+		throw MatrixError("Index out of range!");
+#endif // _DEBUG
+	return m_Matrix[column + row*m_Columns];
+}
+
+const double & Matrix::operator()(unsigned int row, 
