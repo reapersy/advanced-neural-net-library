@@ -145,4 +145,10 @@ const double & Matrix::operator()(unsigned int row, unsigned int column) const
 double & Matrix::operator[](const std::pair<unsigned int, unsigned int>& index)
 {
 #ifdef _DEBUG
-	if ((index.second + index.first*m_Columns) >= 
+	if ((index.second + index.first*m_Columns) >= m_Rows*m_Columns)
+		throw MatrixError("Index out of range!");
+#endif // _DEBUG
+	return m_Matrix[index.second + index.first*m_Columns];
+}
+
+const d
