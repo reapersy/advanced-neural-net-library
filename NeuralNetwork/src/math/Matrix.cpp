@@ -151,4 +151,7 @@ double & Matrix::operator[](const std::pair<unsigned int, unsigned int>& index)
 	return m_Matrix[index.second + index.first*m_Columns];
 }
 
-const d
+const double & Matrix::operator[](const std::pair<unsigned int, unsigned int>& index) const
+{
+#ifdef _DEBUG
+	if ((index.second + index.first*m_Columns) >= m_Rows*m_Column
