@@ -160,4 +160,10 @@ const double & Matrix::operator[](const std::pair<unsigned int, unsigned int>& i
 	return m_Matrix[index.second + index.first*m_Columns];
 }
 
-Matrix & Matrix::operator+=(const
+Matrix & Matrix::operator+=(const Matrix & other)
+{
+#ifdef _DEBUG
+	if (!HasSameDimension(other))
+		throw MatrixError("Matrices do not have the same dimension!");
+#endif // _DEBUG
+	std::transform(m_Matrix.begin(), 
