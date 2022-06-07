@@ -166,4 +166,9 @@ Matrix & Matrix::operator+=(const Matrix & other)
 	if (!HasSameDimension(other))
 		throw MatrixError("Matrices do not have the same dimension!");
 #endif // _DEBUG
-	std::transform(m_Matrix.begin(), 
+	std::transform(m_Matrix.begin(), m_Matrix.end(), other.m_Matrix.begin(), m_Matrix.begin(), std::plus<double>());
+	return *this;
+}
+
+Matrix & Matrix::operator+=(double scalar)
+{
