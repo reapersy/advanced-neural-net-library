@@ -176,4 +176,10 @@ Matrix & Matrix::operator+=(double scalar)
 	return *this;
 }
 
-Matrix & Matrix::operator-=(const Matrix & other
+Matrix & Matrix::operator-=(const Matrix & other)
+{
+#ifdef _DEBUG
+	if (!HasSameDimension(other))
+		throw MatrixError("Matrices do not have the same dimension!");
+#endif // _DEBUG
+	std::transform(m_Matrix.begin(), m_Mat
