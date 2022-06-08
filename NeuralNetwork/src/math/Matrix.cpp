@@ -188,4 +188,10 @@ Matrix & Matrix::operator-=(const Matrix & other)
 
 Matrix & Matrix::operator-=(double scalar)
 {
-	std::for_each(m_Matrix.beg
+	std::for_each(m_Matrix.begin(), m_Matrix.end(), [scalar](double& x) { x -= scalar; });
+	return *this;
+}
+
+Matrix & Matrix::operator*=(double scalar)
+{
+	std::for_each(m_Matrix.be
