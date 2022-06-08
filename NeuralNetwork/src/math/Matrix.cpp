@@ -182,4 +182,10 @@ Matrix & Matrix::operator-=(const Matrix & other)
 	if (!HasSameDimension(other))
 		throw MatrixError("Matrices do not have the same dimension!");
 #endif // _DEBUG
-	std::transform(m_Matrix.begin(), m_Mat
+	std::transform(m_Matrix.begin(), m_Matrix.end(), other.m_Matrix.begin(), m_Matrix.begin(), std::minus<double>());
+	return *this;
+}
+
+Matrix & Matrix::operator-=(double scalar)
+{
+	std::for_each(m_Matrix.beg
