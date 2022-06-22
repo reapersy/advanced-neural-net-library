@@ -205,4 +205,13 @@ Matrix & Matrix::operator*=(const Matrix & other)
 		throw MatrixError("Number of columns of the left matrix has to match number of rows of the right matrix!");
 #endif // _DEBUG
 	*this = *this * other;
-	return *
+	return *this;
+}
+
+Matrix & Matrix::operator/=(double scalar)
+{
+#ifdef _DEBUG
+	if (scalar == 0)
+		throw MatrixError("Cannot divide by zero!");
+#endif // _DEBUG
+	std::for_each
