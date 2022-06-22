@@ -221,4 +221,7 @@ Matrix & Matrix::operator/=(double scalar)
 Matrix & Matrix::DotProduct(const Matrix & other)
 {
 #ifdef _DEBUG
-	if (!HasSameDim
+	if (!HasSameDimension(other))
+		throw MatrixError("Matrices do not have the same dimension!");
+#endif // _DEBUG
+	std::transform(m_Matrix.begin(), m_Matrix.end(), other.m_Matrix.begin(), m_Matr
