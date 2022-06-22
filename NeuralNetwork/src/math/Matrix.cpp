@@ -214,4 +214,11 @@ Matrix & Matrix::operator/=(double scalar)
 	if (scalar == 0)
 		throw MatrixError("Cannot divide by zero!");
 #endif // _DEBUG
-	std::for_each
+	std::for_each(m_Matrix.begin(), m_Matrix.end(), [scalar](double& x) { x /= scalar; });
+	return *this;
+}
+
+Matrix & Matrix::DotProduct(const Matrix & other)
+{
+#ifdef _DEBUG
+	if (!HasSameDim
