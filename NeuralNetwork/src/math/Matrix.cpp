@@ -224,4 +224,12 @@ Matrix & Matrix::DotProduct(const Matrix & other)
 	if (!HasSameDimension(other))
 		throw MatrixError("Matrices do not have the same dimension!");
 #endif // _DEBUG
-	std::transform(m_Matrix.begin(), m_Matrix.end(), other.m_Matrix.begin(), m_Matr
+	std::transform(m_Matrix.begin(), m_Matrix.end(), other.m_Matrix.begin(), m_Matrix.begin(), std::multiplies<double>());
+	return *this;
+}
+
+Matrix & Matrix::Transpose()
+{
+	if (m_Rows != 1 && m_Columns != 1)
+	{
+		std::vector<double> transposedMatrix(m_
