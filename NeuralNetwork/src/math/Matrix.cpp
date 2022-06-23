@@ -237,4 +237,15 @@ Matrix & Matrix::Transpose()
 		{
 			for (unsigned int j = 0; j < m_Columns; ++j)
 			{
-				transposedMatrix[i + j*m_Rows] = m_Matrix[j
+				transposedMatrix[i + j*m_Rows] = m_Matrix[j + i*m_Columns];
+			}
+		}
+		m_Matrix = std::move(transposedMatrix);
+	}
+	std::swap(m_Rows, m_Columns);
+	return *this;
+}
+
+Matrix Matrix::LoadMatrix(std::ifstream & infile)
+{
+	unsigned in
