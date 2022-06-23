@@ -232,4 +232,9 @@ Matrix & Matrix::Transpose()
 {
 	if (m_Rows != 1 && m_Columns != 1)
 	{
-		std::vector<double> transposedMatrix(m_
+		std::vector<double> transposedMatrix(m_Rows*m_Columns);
+		for (unsigned int i = 0; i < m_Rows; ++i)
+		{
+			for (unsigned int j = 0; j < m_Columns; ++j)
+			{
+				transposedMatrix[i + j*m_Rows] = m_Matrix[j
