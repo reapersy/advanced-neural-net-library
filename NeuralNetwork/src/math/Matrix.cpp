@@ -248,4 +248,8 @@ Matrix & Matrix::Transpose()
 
 Matrix Matrix::LoadMatrix(std::ifstream & infile)
 {
-	unsigned in
+	unsigned int rows, columns;
+	infile.read((char*)&rows, sizeof(rows));
+	infile.read((char*)&columns, sizeof(columns));
+	Matrix matrix(rows, columns);
+	double* m =
