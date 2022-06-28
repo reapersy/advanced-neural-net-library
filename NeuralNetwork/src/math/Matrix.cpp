@@ -267,4 +267,8 @@ Matrix Matrix::OneHot(unsigned int one, unsigned int size)
 	return matrix;
 }
 
-Matrix Matrix::
+Matrix Matrix::DotProduct(const Matrix & left, const Matrix & right)
+{
+#ifdef _DEBUG
+	if (!left.HasSameDimension(right))
+		throw MatrixError("Matrices do not have the same
