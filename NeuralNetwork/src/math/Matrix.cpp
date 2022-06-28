@@ -252,4 +252,9 @@ Matrix Matrix::LoadMatrix(std::ifstream & infile)
 	infile.read((char*)&rows, sizeof(rows));
 	infile.read((char*)&columns, sizeof(columns));
 	Matrix matrix(rows, columns);
-	double* m =
+	double* m = new double[rows*columns];
+	infile.read((char*)m, sizeof(double)*rows*columns);
+	std::vector<double> mat(m, m + rows*columns);
+	matrix.m_Matrix = std::move(mat);
+	delete[] m;
+	re
