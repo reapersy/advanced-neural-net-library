@@ -257,4 +257,14 @@ Matrix Matrix::LoadMatrix(std::ifstream & infile)
 	std::vector<double> mat(m, m + rows*columns);
 	matrix.m_Matrix = std::move(mat);
 	delete[] m;
-	re
+	return matrix;
+}
+
+Matrix Matrix::OneHot(unsigned int one, unsigned int size)
+{
+	Matrix matrix(1, size, 0);
+	matrix(0, one) = 1;
+	return matrix;
+}
+
+Matrix Matrix::
