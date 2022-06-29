@@ -274,4 +274,13 @@ Matrix Matrix::DotProduct(const Matrix & left, const Matrix & right)
 		throw MatrixError("Matrices do not have the same dimension!");
 #endif // _DEBUG
 	Matrix result(left);
-	std::transform(result.m_Matrix.begin(), result.m_Matrix.end(), right.m_Matrix.begin(), result.m_Matrix.begin(
+	std::transform(result.m_Matrix.begin(), result.m_Matrix.end(), right.m_Matrix.begin(), result.m_Matrix.begin(), std::multiplies<double>());
+	return result;
+}
+
+Matrix Matrix::Transpose(const Matrix & matrix)
+{
+	Matrix result(matrix);
+	if (matrix.m_Rows != 1 && matrix.m_Columns != 1)
+	{
+		for (u
