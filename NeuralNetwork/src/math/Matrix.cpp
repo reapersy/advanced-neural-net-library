@@ -283,4 +283,8 @@ Matrix Matrix::Transpose(const Matrix & matrix)
 	Matrix result(matrix);
 	if (matrix.m_Rows != 1 && matrix.m_Columns != 1)
 	{
-		for (u
+		for (unsigned int i = 0; i < matrix.m_Rows; ++i)
+		{
+			for (unsigned int j = 0; j < matrix.m_Columns; ++j)
+			{
+				result.m_Matrix[i + j*matrix.m_Rows
