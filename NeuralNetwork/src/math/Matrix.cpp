@@ -287,4 +287,12 @@ Matrix Matrix::Transpose(const Matrix & matrix)
 		{
 			for (unsigned int j = 0; j < matrix.m_Columns; ++j)
 			{
-				result.m_Matrix[i + j*matrix.m_Rows
+				result.m_Matrix[i + j*matrix.m_Rows] = matrix.m_Matrix[j + i*matrix.m_Columns];
+			}
+		}
+	}
+	std::swap(result.m_Rows, result.m_Columns);
+	return result;
+}
+
+Matrix Matrix::BuildColumnMatrix(unsigne
