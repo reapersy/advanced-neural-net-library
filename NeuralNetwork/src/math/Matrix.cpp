@@ -309,4 +309,10 @@ Matrix Matrix::Max(const Matrix & first, const Matrix & second)
 		throw MatrixError("Matrices do not have the same dimension!");
 #endif // _DEBUG
 	Matrix result{ first };
-	std::transform(result.m_Matrix.begin(), result.m_Matrix.end(), second.m_Matrix.begin(), result.m_Matrix.begin(), [](dou
+	std::transform(result.m_Matrix.begin(), result.m_Matrix.end(), second.m_Matrix.begin(), result.m_Matrix.begin(), [](double a, double b) { return std::max(a, b); });
+	return result;
+}
+
+bool Matrix::HasSameDimension(const Matrix & other) const
+{
+	return m_Rows == other.m_Rows &&
