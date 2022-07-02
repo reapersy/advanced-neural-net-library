@@ -295,4 +295,11 @@ Matrix Matrix::Transpose(const Matrix & matrix)
 	return result;
 }
 
-Matrix Matrix::BuildColumnMatrix(unsigne
+Matrix Matrix::BuildColumnMatrix(unsigned int rows, double value)
+{
+	Matrix matrix(rows, 1);
+	std::fill(matrix.m_Matrix.begin(), matrix.m_Matrix.end(), value);
+	return matrix;
+}
+
+Matrix Matrix::Max
