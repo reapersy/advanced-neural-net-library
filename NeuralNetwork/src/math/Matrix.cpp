@@ -306,4 +306,7 @@ Matrix Matrix::Max(const Matrix & first, const Matrix & second)
 {
 #ifdef _DEBUG
 	if (!first.HasSameDimension(second))
-		throw MatrixError("Matrices do not have the same dimens
+		throw MatrixError("Matrices do not have the same dimension!");
+#endif // _DEBUG
+	Matrix result{ first };
+	std::transform(result.m_Matrix.begin(), result.m_Matrix.end(), second.m_Matrix.begin(), result.m_Matrix.begin(), [](dou
