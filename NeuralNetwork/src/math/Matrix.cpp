@@ -302,4 +302,8 @@ Matrix Matrix::BuildColumnMatrix(unsigned int rows, double value)
 	return matrix;
 }
 
-Matrix Matrix::Max
+Matrix Matrix::Max(const Matrix & first, const Matrix & second)
+{
+#ifdef _DEBUG
+	if (!first.HasSameDimension(second))
+		throw MatrixError("Matrices do not have the same dimens
