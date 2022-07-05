@@ -322,4 +322,13 @@ std::ostream & operator<<(std::ostream & out, const Matrix & m)
 {
 	for (unsigned int i = 0; i < m.m_Rows; ++i)
 	{
-		for (unsigned 
+		for (unsigned int j = 0; j < m.m_Columns; ++j)
+		{
+			out << m.m_Matrix[j + i*m.m_Columns] << " ";
+		}
+		out << std::endl;
+	}
+	return out;
+}
+
+Matrix operator+(const Matrix & 
