@@ -331,4 +331,9 @@ std::ostream & operator<<(std::ostream & out, const Matrix & m)
 	return out;
 }
 
-Matrix operator+(const Matrix & 
+Matrix operator+(const Matrix & left, const Matrix & right)
+{
+#ifdef _DEBUG
+	if (!left.HasSameDimension(right))
+		throw MatrixError("Matrices do not have the same dimension!");
+#e
