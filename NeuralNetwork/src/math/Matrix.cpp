@@ -315,4 +315,11 @@ Matrix Matrix::Max(const Matrix & first, const Matrix & second)
 
 bool Matrix::HasSameDimension(const Matrix & other) const
 {
-	return m_Rows == other.m_Rows &&
+	return m_Rows == other.m_Rows && m_Columns == other.m_Columns;
+}
+
+std::ostream & operator<<(std::ostream & out, const Matrix & m)
+{
+	for (unsigned int i = 0; i < m.m_Rows; ++i)
+	{
+		for (unsigned 
