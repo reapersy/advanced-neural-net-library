@@ -336,4 +336,6 @@ Matrix operator+(const Matrix & left, const Matrix & right)
 #ifdef _DEBUG
 	if (!left.HasSameDimension(right))
 		throw MatrixError("Matrices do not have the same dimension!");
-#e
+#endif // _DEBUG
+	Matrix result(left);
+	std::transform(result.m_Matrix.begin(), result.m_Matrix.end(), right.m_Matrix.begin(), result.m_Matrix.begin(), std::plus<doub
