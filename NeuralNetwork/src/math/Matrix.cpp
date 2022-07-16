@@ -338,4 +338,11 @@ Matrix operator+(const Matrix & left, const Matrix & right)
 		throw MatrixError("Matrices do not have the same dimension!");
 #endif // _DEBUG
 	Matrix result(left);
-	std::transform(result.m_Matrix.begin(), result.m_Matrix.end(), right.m_Matrix.begin(), result.m_Matrix.begin(), std::plus<doub
+	std::transform(result.m_Matrix.begin(), result.m_Matrix.end(), right.m_Matrix.begin(), result.m_Matrix.begin(), std::plus<double>());
+	return result;
+}
+
+Matrix operator*(const Matrix & matrix, double scalar)
+{
+	Matrix result(matrix);
+	std::for_each(result.m_Matrix.begin(), result.m_Ma
