@@ -345,4 +345,11 @@ Matrix operator+(const Matrix & left, const Matrix & right)
 Matrix operator*(const Matrix & matrix, double scalar)
 {
 	Matrix result(matrix);
-	std::for_each(result.m_Matrix.begin(), result.m_Ma
+	std::for_each(result.m_Matrix.begin(), result.m_Matrix.end(), [scalar](double& x) { x *= scalar; });
+	return result;
+}
+
+Matrix operator*(double scalar, const Matrix & matrix)
+{
+	Matrix result(matrix);
+	std::for_each(result.m
