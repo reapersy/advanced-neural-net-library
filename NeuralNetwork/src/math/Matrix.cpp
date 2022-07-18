@@ -359,4 +359,9 @@ Matrix operator*(double scalar, const Matrix & matrix)
 Matrix operator-(const Matrix & left, const Matrix & right)
 {
 #ifdef _DEBUG
-	if (!left.HasS
+	if (!left.HasSameDimension(right))
+		throw MatrixError("Matrices do not have the same dimension!");
+#endif // _DEBUG
+
+	Matrix result(left);
+	std::transform(result.m_Matrix
