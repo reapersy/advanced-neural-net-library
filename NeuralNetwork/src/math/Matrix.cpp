@@ -369,3 +369,10 @@ Matrix operator-(const Matrix & left, const Matrix & right)
 }
 
 Matrix operator-(double scalar, const Matrix & matrix)
+{
+	Matrix result(matrix.m_Rows, matrix.m_Columns);
+	result.Map([scalar](double x) { return scalar - x; });
+	return result;
+}
+
+Matrix operator*(const Matrix & 
