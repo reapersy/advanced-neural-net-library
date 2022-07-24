@@ -375,4 +375,8 @@ Matrix operator-(double scalar, const Matrix & matrix)
 	return result;
 }
 
-Matrix operator*(const Matrix & 
+Matrix operator*(const Matrix & left, const Matrix & right)
+{
+#ifdef _DEBUG
+	if (left.m_Columns != right.m_Rows)
+		throw MatrixError("Number of columns of the left matrix has to ma
