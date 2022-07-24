@@ -364,4 +364,8 @@ Matrix operator-(const Matrix & left, const Matrix & right)
 #endif // _DEBUG
 
 	Matrix result(left);
-	std::transform(result.m_Matrix
+	std::transform(result.m_Matrix.begin(), result.m_Matrix.end(), right.m_Matrix.begin(), result.m_Matrix.begin(), std::minus<double>());
+	return result;
+}
+
+Matrix operator-(double scalar, const Matrix & matrix)
