@@ -379,4 +379,9 @@ Matrix operator*(const Matrix & left, const Matrix & right)
 {
 #ifdef _DEBUG
 	if (left.m_Columns != right.m_Rows)
-		throw MatrixError("Number of columns of the left matrix has to ma
+		throw MatrixError("Number of columns of the left matrix has to match number of rows of the right matrix!");
+#endif // _DEBUG
+
+	Matrix result(left.m_Rows, right.m_Columns, 0);
+	for (unsigned int i = 0; i < left.m_Rows; ++i)
+		for (unsigned
