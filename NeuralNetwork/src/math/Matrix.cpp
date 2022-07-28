@@ -390,4 +390,12 @@ Matrix operator*(const Matrix & left, const Matrix & right)
 	return result;
 }
 
-Matrix operator/(const Matrix & 
+Matrix operator/(const Matrix & matrix, double scalar)
+{
+#ifdef _DEBUG
+	if (scalar == 0)
+		throw MatrixError("Cannot divide by zero!");
+#endif // _DEBUG
+
+	Matrix result(matrix);
+	std::for_each(result.m_M
