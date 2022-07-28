@@ -384,4 +384,10 @@ Matrix operator*(const Matrix & left, const Matrix & right)
 
 	Matrix result(left.m_Rows, right.m_Columns, 0);
 	for (unsigned int i = 0; i < left.m_Rows; ++i)
-		for (unsigned
+		for (unsigned int k = 0; k < left.m_Columns; ++k)
+			for (unsigned int j = 0; j < right.m_Columns; ++j)
+				result(i, j) += left(i, k) * right(k, j);
+	return result;
+}
+
+Matrix operator/(const Matrix & 
