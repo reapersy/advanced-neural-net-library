@@ -403,3 +403,9 @@ Matrix operator/(const Matrix & matrix, double scalar)
 }
 
 Matrix operator/(const Matrix & left, const Matrix & right)
+{
+#ifdef _DEBUG
+	if (!left.HasSameDimension(right))
+		throw MatrixError("Matrices do not have the same dimension!");
+#endif // _DEBUG
+	Matrix result{ left };
