@@ -398,4 +398,8 @@ Matrix operator/(const Matrix & matrix, double scalar)
 #endif // _DEBUG
 
 	Matrix result(matrix);
-	std::for_each(result.m_M
+	std::for_each(result.m_Matrix.begin(), result.m_Matrix.end(), [scalar](double& x) { x /= scalar; });
+	return result;
+}
+
+Matrix operator/(const Matrix & left, const Matrix & right)
