@@ -24,4 +24,8 @@ namespace nn
 {
 	namespace optimizer
 	{
-		AMSBound::AMSBound(double
+		AMSBound::AMSBound(double lr, double beta1, double beta2, double final_lr, double gamma)
+			: Optimizer(lr), m_Beta1(beta1), m_Beta2(beta2), m_FinalLearningRate(final_lr), m_Gamma(gamma)
+		{
+
+		
