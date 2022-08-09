@@ -32,4 +32,6 @@ namespace nn
 
 		void AMSBound::UpdateLayer(Layer & layer, Matrix & deltaWeight, Matrix & deltaBias, int layerIndex, unsigned int epoch)
 		{
-			double stepSize = m_LearningRate * (sqrt(1.0 - pow(m_Beta2, e
+			double stepSize = m_LearningRate * (sqrt(1.0 - pow(m_Beta2, epoch)) / (1.0 - pow(m_Beta1, epoch)));
+			double lowerBound = m_FinalLearningRate * (1.0 - 1.0 / (m_Gamma*epoch + 1.0));
+			double upperBound = m_FinalLearningRate * (1.0 + 1.0 / (m
