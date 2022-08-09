@@ -28,4 +28,8 @@ namespace nn
 			: Optimizer(lr), m_Beta1(beta1), m_Beta2(beta2), m_FinalLearningRate(final_lr), m_Gamma(gamma)
 		{
 
-		
+		}
+
+		void AMSBound::UpdateLayer(Layer & layer, Matrix & deltaWeight, Matrix & deltaBias, int layerIndex, unsigned int epoch)
+		{
+			double stepSize = m_LearningRate * (sqrt(1.0 - pow(m_Beta2, e
