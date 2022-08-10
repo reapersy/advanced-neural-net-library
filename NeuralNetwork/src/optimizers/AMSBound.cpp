@@ -41,4 +41,9 @@ namespace nn
 				vsWeight[layerIndex] = (1.0 - m_Beta2)*Matrix::Map(deltaWeight, [](double x) { return x*x; });
 				vhatsWeight[layerIndex] = vsWeight[layerIndex];
 				msBias[layerIndex] = (1.0 - m_Beta1)*deltaBias;
-				vsBias[layerIndex] = (1.0 - 
+				vsBias[layerIndex] = (1.0 - m_Beta2)*Matrix::Map(deltaBias, [](double x) { return x*x; });
+				vhatsBias[layerIndex] = vsBias[layerIndex];
+			}
+			else
+			{
+				msWeight[layerIndex] = 
