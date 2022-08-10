@@ -46,4 +46,5 @@ namespace nn
 			}
 			else
 			{
-				msWeight[layerIndex] = 
+				msWeight[layerIndex] = m_Beta1*msWeight[layerIndex] + (1.0 - m_Beta1)*deltaWeight;
+				vsWeight[layerIndex] = m_Beta2*vsWeight[layerIndex] + (1.0 - m_Beta2)*Matrix::Map(del
