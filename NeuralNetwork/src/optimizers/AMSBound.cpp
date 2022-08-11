@@ -50,4 +50,7 @@ namespace nn
 				vsWeight[layerIndex] = m_Beta2*vsWeight[layerIndex] + (1.0 - m_Beta2)*Matrix::Map(deltaWeight, [](double x) { return x*x; });
 				vhatsWeight[layerIndex] = Matrix::Max(vhatsWeight[layerIndex], vsWeight[layerIndex]);
 				msBias[layerIndex] = m_Beta1*msBias[layerIndex] + (1.0 - m_Beta1)*deltaBias;
-				vsBias[layerIndex] = m_Beta2*vsBias[layerIndex] + (1.0 - m_Beta2)*Matrix::Map(deltaBias, [](double x) { return x*
+				vsBias[layerIndex] = m_Beta2*vsBias[layerIndex] + (1.0 - m_Beta2)*Matrix::Map(deltaBias, [](double x) { return x*x; });
+				vhatsBias[layerIndex] = Matrix::Max(vhatsBias[layerIndex], vsBias[layerIndex]);
+			}
+			Matrix boundedWeight = Matrix::Map(vhatsWeight[layerIndex], [stepSize, lowe
