@@ -47,4 +47,6 @@ namespace nn
 			else
 			{
 				msWeight[layerIndex] = m_Beta1*msWeight[layerIndex] + (1.0 - m_Beta1)*deltaWeight;
-				vsWeight[layerIndex] = m_Beta2*vsWeight[layerIndex] + (1.0 - m_Beta2)*Matrix::Map(del
+				vsWeight[layerIndex] = m_Beta2*vsWeight[layerIndex] + (1.0 - m_Beta2)*Matrix::Map(deltaWeight, [](double x) { return x*x; });
+				vhatsWeight[layerIndex] = Matrix::Max(vhatsWeight[layerIndex], vsWeight[layerIndex]);
+				msBias[layerIndex
