@@ -53,4 +53,9 @@ namespace nn
 				vsBias[layerIndex] = m_Beta2*vsBias[layerIndex] + (1.0 - m_Beta2)*Matrix::Map(deltaBias, [](double x) { return x*x; });
 				vhatsBias[layerIndex] = Matrix::Max(vhatsBias[layerIndex], vsBias[layerIndex]);
 			}
-			Matrix boundedWeight = Matrix::Map(vhatsWeight[layerIndex], [stepSize, lowe
+			Matrix boundedWeight = Matrix::Map(vhatsWeight[layerIndex], [stepSize, lowerBound, upperBound](double x)
+			{
+				double val = stepSize / (sqrt(x) + 1e-7);
+				return std::min(std::max(val, lowerBound), upperBound);
+			});
+			
