@@ -64,4 +64,13 @@ namespace nn
 				return std::min(std::max(val, lowerBound), upperBound);
 			});
 			layer.WeightMatrix -= msWeight[layerIndex].DotProduct(boundedWeight);
-			layer.BiasMatrix -= msBias[layerIndex].Dot
+			layer.BiasMatrix -= msBias[layerIndex].DotProduct(boundedBias);
+		}
+
+		void AMSBound::Reset()
+		{
+			msWeight.clear();
+			vsWeight.clear();
+			vhatsWeight.clear();
+			msBias.clear();
+			v
