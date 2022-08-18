@@ -61,4 +61,7 @@ namespace nn
 			Matrix boundedBias = Matrix::Map(vhatsBias[layerIndex], [stepSize, lowerBound, upperBound](double x)
 			{
 				double val = stepSize / (sqrt(x) + 1e-7);
-				return std::min(std::max(val
+				return std::min(std::max(val, lowerBound), upperBound);
+			});
+			layer.WeightMatrix -= msWeight[layerIndex].DotProduct(boundedWeight);
+			layer.BiasMatrix -= msBias[layerIndex].Dot
