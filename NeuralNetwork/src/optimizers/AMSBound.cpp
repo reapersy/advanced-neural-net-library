@@ -73,4 +73,8 @@ namespace nn
 			vsWeight.clear();
 			vhatsWeight.clear();
 			msBias.clear();
-			v
+			vsBias.clear();
+			vhatsBias.clear();
+		}
+	}
+}
