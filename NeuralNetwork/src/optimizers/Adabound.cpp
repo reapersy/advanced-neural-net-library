@@ -24,4 +24,10 @@ namespace nn
 {
 	namespace optimizer
 	{
-		Adabound::Adabound(double lr, double beta1, double beta2, double final_lr, double g
+		Adabound::Adabound(double lr, double beta1, double beta2, double final_lr, double gamma)
+			: Optimizer(lr), m_Beta1(beta1), m_Beta2(beta2), m_FinalLearningRate(final_lr), m_Gamma(gamma)
+		{
+
+		}
+
+		void Adabound::UpdateLayer(Layer & layer, Matrix & del
