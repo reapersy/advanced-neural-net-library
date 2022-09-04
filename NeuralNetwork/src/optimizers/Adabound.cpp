@@ -38,4 +38,6 @@ namespace nn
 			if (msWeight.find(layerIndex) == msWeight.end())
 			{
 				msWeight[layerIndex] = (1.0 - m_Beta1)*deltaWeight;
-				vsWeight[layerIndex] = (1.0 - m_Beta2)*Ma
+				vsWeight[layerIndex] = (1.0 - m_Beta2)*Matrix::Map(deltaWeight, [](double x) { return x*x; });
+				msBias[layerIndex] = (1.0 - m_Beta1)*deltaBias;
+				vsBias[layerIndex] = (1.0 - m_Beta2)*Matrix::Map(deltaBia
