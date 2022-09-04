@@ -30,4 +30,6 @@ namespace nn
 
 		}
 
-		void Adabound::UpdateLayer(Layer & layer, Matrix & del
+		void Adabound::UpdateLayer(Layer & layer, Matrix & deltaWeight, Matrix & deltaBias, int layerIndex, unsigned int epoch)
+		{
+			double stepSize = m_LearningRate * (sqrt(1.0 - pow(m_Beta2, epoch)) / (1.0 - pow(m_Beta1, epoch
