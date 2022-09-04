@@ -34,4 +34,8 @@ namespace nn
 		{
 			double stepSize = m_LearningRate * (sqrt(1.0 - pow(m_Beta2, epoch)) / (1.0 - pow(m_Beta1, epoch)));
 			double lowerBound = m_FinalLearningRate * (1.0 - 1.0 / (m_Gamma*epoch + 1.0));
-			double upperBound = m_FinalLearningRate * (1.0 + 1.0 / (m_Gamma*epoc
+			double upperBound = m_FinalLearningRate * (1.0 + 1.0 / (m_Gamma*epoch));
+			if (msWeight.find(layerIndex) == msWeight.end())
+			{
+				msWeight[layerIndex] = (1.0 - m_Beta1)*deltaWeight;
+				vsWeight[layerIndex] = (1.0 - m_Beta2)*Ma
