@@ -46,4 +46,7 @@ namespace nn
 			{
 				msWeight[layerIndex] = m_Beta1*msWeight[layerIndex] + (1.0 - m_Beta1)*deltaWeight;
 				vsWeight[layerIndex] = m_Beta2*vsWeight[layerIndex] + (1.0 - m_Beta2)*Matrix::Map(deltaWeight, [](double x) { return x*x; });
-				msBias[layerIndex] = m_Beta1*msBias[layerIndex] + (1.0 - m_Beta1
+				msBias[layerIndex] = m_Beta1*msBias[layerIndex] + (1.0 - m_Beta1)*deltaBias;
+				vsBias[layerIndex] = m_Beta2*vsBias[layerIndex] + (1.0 - m_Beta2)*Matrix::Map(deltaBias, [](double x) { return x*x; });
+			}
+			Matrix boundedWeight = M
