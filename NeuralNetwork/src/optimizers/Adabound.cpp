@@ -52,4 +52,8 @@ namespace nn
 			Matrix boundedWeight = Matrix::Map(vsWeight[layerIndex], [stepSize, lowerBound, upperBound](double x)
 			{
 				double val = stepSize / (sqrt(x) + 1e-7);
-				return std::min(std::max(val, l
+				return std::min(std::max(val, lowerBound), upperBound);
+			});
+			Matrix boundedBias = Matrix::Map(vsBias[layerIndex], [stepSize, lowerBound, upperBound](double x)
+			{
+				double val = stepSize / (sqrt(
