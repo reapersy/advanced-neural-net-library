@@ -67,4 +67,8 @@ namespace nn
 		{
 			msWeight.clear();
 			vsWeight.clear();
-			msBias.cl
+			msBias.clear();
+			vsBias.clear();
+		}
+	}
+}
