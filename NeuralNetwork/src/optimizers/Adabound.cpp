@@ -59,4 +59,12 @@ namespace nn
 				double val = stepSize / (sqrt(x) + 1e-7);
 				return std::min(std::max(val, lowerBound), upperBound);
 			});
-			layer.WeightMatrix -= msWeight[layerIndex].DotProduct(boun
+			layer.WeightMatrix -= msWeight[layerIndex].DotProduct(boundedWeight);
+			layer.BiasMatrix -= msBias[layerIndex].DotProduct(boundedBias);
+		}
+
+		void Adabound::Reset()
+		{
+			msWeight.clear();
+			vsWeight.clear();
+			msBias.cl
