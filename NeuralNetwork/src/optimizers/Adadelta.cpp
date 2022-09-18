@@ -24,4 +24,9 @@ namespace nn
 {
 	namespace optimizer
 	{
-		Adadelta
+		Adadelta::Adadelta(double lr, double beta) : Optimizer(lr), m_Beta(beta)
+		{
+
+		}
+
+		void Adadelta::UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix
