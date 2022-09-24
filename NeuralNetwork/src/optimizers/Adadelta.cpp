@@ -34,4 +34,8 @@ namespace nn
 			if (gradSquaredW.find(layerIndex) == gradSquaredW.end())
 			{
 				gradSquaredW[layerIndex] = (1 - m_Beta) * Matrix::Map(deltaWeight, [](double x) { return x*x; });
-				gradSquaredB[layerIndex] = (1 - m_Beta) * Matrix::Map(deltaBias, [](doubl
+				gradSquaredB[layerIndex] = (1 - m_Beta) * Matrix::Map(deltaBias, [](double x) { return x*x; });
+			}
+			else
+			{
+				gradSquaredW[layerIndex] = m_Beta * gradSquaredW[layerIndex] + (1 - m_Beta) * Matrix::Map(deltaWeight, [](double x) { r
