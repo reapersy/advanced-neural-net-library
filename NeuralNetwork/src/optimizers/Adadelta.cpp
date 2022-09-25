@@ -47,4 +47,8 @@ namespace nn
 
 		void Adadelta::Reset()
 		{
-			gradSquaredB.clear(
+			gradSquaredB.clear();
+			gradSquaredW.clear();
+		}
+	}
+}
