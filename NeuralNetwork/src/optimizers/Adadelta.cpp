@@ -41,4 +41,5 @@ namespace nn
 				gradSquaredW[layerIndex] = m_Beta * gradSquaredW[layerIndex] + (1 - m_Beta) * Matrix::Map(deltaWeight, [](double x) { return x*x; });
 				gradSquaredB[layerIndex] = m_Beta * gradSquaredB[layerIndex] + (1 - m_Beta) * Matrix::Map(deltaBias, [](double x) { return x*x; });
 			}
-			layer.Weigh
+			layer.WeightMatrix -= (m_LearningRate * deltaWeight) / Matrix::Map(gradSquaredW[layerIndex], [](double x) { return sqrt(x) + 1e-7; });
+			layer.BiasMatrix -= (m_LearningRate *
