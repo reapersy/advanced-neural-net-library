@@ -29,4 +29,8 @@ namespace nn
 
 		}
 
-		void Adagrad::UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix&
+		void Adagrad::UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex, unsigned int epoch)
+		{
+			if (gradSquaredW.find(layerIndex) == gradSquaredW.end())
+			{
+				gradSquaredW[layerIndex] = Matrix::Map(deltaWeight, [](do
