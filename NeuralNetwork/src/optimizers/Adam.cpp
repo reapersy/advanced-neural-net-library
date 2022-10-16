@@ -26,3 +26,46 @@ namespace nn
 	namespace optimizer
 	{
 		Adam::Adam(double lr, double beta1, double beta2) : Optimizer(lr), m_Beta1(beta1), m_Beta2(beta2)
+		{
+
+		}
+
+		void Adam::UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex, unsigned int epoch)
+		{
+			if (firstMomentW.find(layerIndex) == firstMomentW.end())
+			{
+				// Weights
+				firstMomentW[layerIndex] = (1 - m_Beta1) * deltaWeight;
+				secondMomentW[layerIndex] = (1 - m_Beta2) * Matrix::Map(deltaWeight, [](double x) { return x*x; });
+				// Biases
+				firstMomentB[layerIndex] = (1 - m_Beta1) * deltaBias;
+				secondMomentB[layerIndex] = (1 - m_Beta2) * Matrix::Map(deltaBias, [](double x) { return x*x; });
+			}
+			else
+			{
+				// Weights
+				firstMomentW[layerIndex] = firstMomentW[layerIndex] * m_Beta1 + (1 - m_Beta1) * deltaWeight;
+				secondMomentW[layerIndex] = secondMomentW[layerIndex] * m_Beta2 + (1 - m_Beta2) * Matrix::Map(deltaWeight, [](double x) { return x*x; });
+				// Biases
+				firstMomentB[layerIndex] = firstMomentB[layerIndex] * m_Beta1 + (1 - m_Beta1) * deltaBias;
+				secondMomentB[layerIndex] = secondMomentB[layerIndex] * m_Beta2 + (1 - m_Beta2) * Matrix::Map(deltaBias, [](double x) { return x*x; });
+			}
+
+			Matrix firstUnbiasW = firstMomentW[layerIndex] / (1 - pow(m_Beta1, epoch));
+			Matrix secondUnbiasW = secondMomentW[layerIndex] / (1 - pow(m_Beta2, epoch));
+			Matrix firstUnbiasB = firstMomentB[layerIndex] / (1 - pow(m_Beta1, epoch));
+			Matrix secondUnbiasB = secondMomentB[layerIndex] / (1 - pow(m_Beta2, epoch));
+
+			layer.WeightMatrix -= (m_LearningRate * firstUnbiasW) / Matrix::Map(secondUnbiasW, [](double x) { return sqrt(x) + 1e-7; });
+			layer.BiasMatrix -= (m_LearningRate * firstUnbiasB) / Matrix::Map(secondUnbiasB, [](double x) { return sqrt(x) + 1e-7; });
+		}
+
+		void Adam::Reset()
+		{
+			firstMomentW.clear();
+			firstMomentB.clear();
+			secondMomentW.clear();
+			secondMomentB.clear();
+		}
+	}
+}
