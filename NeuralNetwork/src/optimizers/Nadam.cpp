@@ -24,4 +24,9 @@ namespace nn
 {
 	namespace optimizer
 	{
-		Nadam::Nadam(double lr, double beta1, double beta2) : Optimizer(lr),
+		Nadam::Nadam(double lr, double beta1, double beta2) : Optimizer(lr), m_Beta1(beta1), m_Beta2(beta2)
+		{
+
+		}
+
+		void Nadam::UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex, unsigned int epoch)
