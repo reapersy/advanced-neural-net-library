@@ -30,3 +30,9 @@ namespace nn
 		}
 
 		void Nadam::UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex, unsigned int epoch)
+		{
+			if (firstMomentW.find(layerIndex) == firstMomentW.end())
+			{
+				// Weights
+				firstMomentW[layerIndex] = (1 - m_Beta1) * deltaWeight;
+				secondMomentW[layerIndex] = (1 
