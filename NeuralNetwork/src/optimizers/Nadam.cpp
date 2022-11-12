@@ -35,4 +35,7 @@ namespace nn
 			{
 				// Weights
 				firstMomentW[layerIndex] = (1 - m_Beta1) * deltaWeight;
-				secondMomentW[layerIndex] = (1 
+				secondMomentW[layerIndex] = (1 - m_Beta2) * Matrix::Map(deltaWeight, [](double x) { return x*x; });
+				// Biases
+				firstMomentB[layerIndex] = (1 - m_Beta1) * deltaBias;
+				secondMomentB[layerIndex] = Matrix::Ma
