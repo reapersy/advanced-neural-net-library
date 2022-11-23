@@ -56,4 +56,10 @@ namespace nn
 			Matrix secondUnbiasB = secondMomentB[layerIndex] / (1 - pow(m_Beta2, epoch));
 
 			layer.WeightMatrix -= (m_LearningRate * (firstUnbiasW * m_Beta1 + (1 - m_Beta1) / (1 - pow(m_Beta1, epoch)) * deltaWeight)) / Matrix::Map(secondUnbiasW, [](double x) { return sqrt(x) + 1e-7; });
-			layer.BiasMatrix -= (m_LearningRate * (firstUnbiasB * m_Beta1 + (1
+			layer.BiasMatrix -= (m_LearningRate * (firstUnbiasB * m_Beta1 + (1 - m_Beta1) / (1 - pow(m_Beta1, epoch)) * deltaBias)) / Matrix::Map(secondUnbiasB, [](double x) { return sqrt(x) + 1e-7; });
+		}
+
+		void Nadam::Reset()
+		{
+			firstMomentW.clear();
+			firs
