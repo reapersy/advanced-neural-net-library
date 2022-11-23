@@ -50,4 +50,7 @@ namespace nn
 				secondMomentB[layerIndex] = secondMomentB[layerIndex] * m_Beta2 + (1 - m_Beta2) * Matrix::Map(deltaBias, [](double x) { return x*x; });
 			}
 
-			Matrix firstUnbiasW = firstMomentW[layerIndex] / (1 - pow(m_Beta1, epoch)
+			Matrix firstUnbiasW = firstMomentW[layerIndex] / (1 - pow(m_Beta1, epoch));
+			Matrix secondUnbiasW = secondMomentW[layerIndex] / (1 - pow(m_Beta2, epoch));
+			Matrix firstUnbiasB = firstMomentB[layerIndex] / (1 - pow(m_Beta1, epoch));
+			Matrix seco
