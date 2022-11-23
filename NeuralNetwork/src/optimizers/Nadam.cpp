@@ -53,4 +53,6 @@ namespace nn
 			Matrix firstUnbiasW = firstMomentW[layerIndex] / (1 - pow(m_Beta1, epoch));
 			Matrix secondUnbiasW = secondMomentW[layerIndex] / (1 - pow(m_Beta2, epoch));
 			Matrix firstUnbiasB = firstMomentB[layerIndex] / (1 - pow(m_Beta1, epoch));
-			Matrix seco
+			Matrix secondUnbiasB = secondMomentB[layerIndex] / (1 - pow(m_Beta2, epoch));
+
+			layer.WeightMatrix -= (m_LearningRate * (firstUnbiasW * m_Beta1 + (1 - m_Beta1) / (1 -
