@@ -62,4 +62,9 @@ namespace nn
 		void Nadam::Reset()
 		{
 			firstMomentW.clear();
-			firs
+			firstMomentB.clear();
+			secondMomentW.clear();
+			secondMomentB.clear();
+		}
+	}
+}
