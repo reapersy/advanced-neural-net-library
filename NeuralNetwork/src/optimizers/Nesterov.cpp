@@ -24,4 +24,9 @@ namespace nn
 {
 	namespace optimizer
 	{
-		Nesterov::Nesterov(double lr, 
+		Nesterov::Nesterov(double lr, double momentum) : Optimizer(lr), m_Momentum(momentum)
+		{
+
+		}
+
+		void Nesterov::UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex, unsigned i
