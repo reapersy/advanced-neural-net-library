@@ -29,4 +29,10 @@ namespace nn
 
 		}
 
-		void Nesterov::UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex, unsigned i
+		void Nesterov::UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex, unsigned int epoch)
+		{
+			Matrix previousWeight;
+			Matrix previousBias;
+			if (lastMomentWeight.find(layerIndex) == lastMomentWeight.end())
+			{
+				previousWeight = Ma
