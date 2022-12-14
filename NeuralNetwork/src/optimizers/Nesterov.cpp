@@ -35,4 +35,6 @@ namespace nn
 			Matrix previousBias;
 			if (lastMomentWeight.find(layerIndex) == lastMomentWeight.end())
 			{
-				previousWeight = Ma
+				previousWeight = Matrix::Map(deltaWeight, [](double x) { return 0; });
+				previousBias = Matrix::Map(deltaBias, [](double x) { return 0; });
+				lastMomentWeight[layerIndex] = -m_Learning
