@@ -37,4 +37,10 @@ namespace nn
 			{
 				previousWeight = Matrix::Map(deltaWeight, [](double x) { return 0; });
 				previousBias = Matrix::Map(deltaBias, [](double x) { return 0; });
-				lastMomentWeight[layerIndex] = -m_Learning
+				lastMomentWeight[layerIndex] = -m_LearningRate*deltaWeight;
+				lastMomentBias[layerIndex] = -m_LearningRate*deltaBias;
+			}
+			else
+			{
+				previousWeight = lastMomentWeight[layerIndex];
+				previousBi
