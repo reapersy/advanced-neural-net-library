@@ -45,4 +45,6 @@ namespace nn
 				previousWeight = lastMomentWeight[layerIndex];
 				previousBias = lastMomentBias[layerIndex];
 				lastMomentWeight[layerIndex] = m_Momentum * lastMomentWeight[layerIndex] - m_LearningRate * deltaWeight;
-				lastMomentBias[layer
+				lastMomentBias[layerIndex] = m_Momentum * lastMomentBias[layerIndex] - m_LearningRate * deltaBias;
+			}
+			layer.WeightMatrix += -m_Momentum*previousWeight + (1 + m_Momentum)*lastMom
