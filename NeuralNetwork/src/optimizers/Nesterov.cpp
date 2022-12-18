@@ -43,4 +43,6 @@ namespace nn
 			else
 			{
 				previousWeight = lastMomentWeight[layerIndex];
-				previousBi
+				previousBias = lastMomentBias[layerIndex];
+				lastMomentWeight[layerIndex] = m_Momentum * lastMomentWeight[layerIndex] - m_LearningRate * deltaWeight;
+				lastMomentBias[layer
