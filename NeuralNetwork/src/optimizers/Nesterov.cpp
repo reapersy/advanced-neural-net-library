@@ -51,4 +51,10 @@ namespace nn
 			layer.BiasMatrix += -m_Momentum*previousBias + (1 + m_Momentum)*lastMomentBias[layerIndex];
 		}
 
-		void Nesterov::
+		void Nesterov::Reset()
+		{
+			lastMomentWeight.clear();
+			lastMomentBias.clear();
+		}
+	}
+}
