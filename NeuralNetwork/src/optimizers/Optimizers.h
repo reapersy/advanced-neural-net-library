@@ -89,3 +89,133 @@ namespace nn
 		private:
 			double m_Beta;
 			std::unordered_map<unsigned int, Matrix> gradSquaredW;
+			std::unordered_map<unsigned int, Matrix> gradSquaredB;
+		public:
+			RMSProp(double lr, double beta = 0.99);
+			void UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex = 0, unsigned int epoch = 0) override;
+			void Reset() override;
+		};
+
+		class Adadelta : public Optimizer
+		{
+		private:
+			double m_Beta;
+			std::unordered_map<unsigned int, Matrix> gradSquaredW;
+			std::unordered_map<unsigned int, Matrix> gradSquaredB;
+		public:
+			Adadelta(double lr, double beta = 0.99);
+			void UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex = 0, unsigned int epoch = 0) override;
+			void Reset() override;
+		};
+
+		class Adam : public Optimizer
+		{
+		private:
+			double m_Beta1;
+			double m_Beta2;
+			// Weights
+			std::unordered_map<unsigned int, Matrix> firstMomentW;
+			std::unordered_map<unsigned int, Matrix> secondMomentW;
+			// Biases
+			std::unordered_map<unsigned int, Matrix> firstMomentB;
+			std::unordered_map<unsigned int, Matrix> secondMomentB;
+		public:
+			Adam(double lr, double beta1 = 0.9, double beta2 = 0.999);
+			void UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex = 0, unsigned int epoch = 0) override;
+			void Reset() override;
+		};
+
+		class Nadam : public Optimizer
+		{
+		private:
+			double m_Beta1;
+			double m_Beta2;
+			// Weights
+			std::unordered_map<unsigned int, Matrix> firstMomentW;
+			std::unordered_map<unsigned int, Matrix> secondMomentW;
+			// Biases
+			std::unordered_map<unsigned int, Matrix> firstMomentB;
+			std::unordered_map<unsigned int, Matrix> secondMomentB;
+		public:
+			Nadam(double lr, double beta1 = 0.9, double beta2 = 0.999);
+			void UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex = 0, unsigned int epoch = 0) override;
+			void Reset() override;
+		};
+
+		class Adamax : public Optimizer
+		{
+		private:
+			double m_Beta1;
+			double m_Beta2;
+			// Weights
+			std::unordered_map<unsigned int, Matrix> firstMomentW;
+			std::unordered_map<unsigned int, Matrix> infinityNormW;
+			// Biases
+			std::unordered_map<unsigned int, Matrix> firstMomentB;
+			std::unordered_map<unsigned int, Matrix> infinityNormB;
+		public:
+			Adamax(double lr, double beta1 = 0.9, double beta2 = 0.999);
+			void UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex = 0, unsigned int epoch = 0) override;
+			void Reset() override;
+		};
+
+		class AMSGrad : public Optimizer
+		{
+		private:
+			double m_Beta1;
+			double m_Beta2;
+			// Weights
+			std::unordered_map<unsigned int, Matrix> firstMomentW;
+			std::unordered_map<unsigned int, Matrix> secondMomentW;
+			std::unordered_map<unsigned int, Matrix> infinityNormW;
+			// Biases
+			std::unordered_map<unsigned int, Matrix> firstMomentB;
+			std::unordered_map<unsigned int, Matrix> secondMomentB;
+			std::unordered_map<unsigned int, Matrix> infinityNormB;
+		public:
+			AMSGrad(double lr, double beta1 = 0.9, double beta2 = 0.999);
+			void UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex = 0, unsigned int epoch = 0) override;
+			void Reset() override;
+		};
+
+		class Adabound : public Optimizer
+		{
+		private:
+			double m_Beta1;
+			double m_Beta2;
+			double m_FinalLearningRate;
+			double m_Gamma;
+			// Weights
+			std::unordered_map<unsigned int, Matrix> msWeight;
+			std::unordered_map<unsigned int, Matrix> vsWeight;
+			// Biases
+			std::unordered_map<unsigned int, Matrix> msBias;
+			std::unordered_map<unsigned int, Matrix> vsBias;
+		public:
+			Adabound(double lr, double beta1 = 0.9, double beta2 = 0.999, double final_lr = 0.1, double gamma = 1e-3);
+			void UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex = 0, unsigned int epoch = 0) override;
+			void Reset() override;
+		};
+
+		class AMSBound : public Optimizer
+		{
+		private:
+			double m_Beta1;
+			double m_Beta2;
+			double m_FinalLearningRate;
+			double m_Gamma;
+			// Weights
+			std::unordered_map<unsigned int, Matrix> msWeight;
+			std::unordered_map<unsigned int, Matrix> vsWeight;
+			std::unordered_map<unsigned int, Matrix> vhatsWeight;
+			// Biases
+			std::unordered_map<unsigned int, Matrix> msBias;
+			std::unordered_map<unsigned int, Matrix> vsBias;
+			std::unordered_map<unsigned int, Matrix> vhatsBias;
+		public:
+			AMSBound(double lr, double beta1 = 0.9, double beta2 = 0.999, double final_lr = 0.1, double gamma = 1e-3);
+			void UpdateLayer(Layer& layer, Matrix& deltaWeight, Matrix& deltaBias, int layerIndex = 0, unsigned int epoch = 0) override;
+			void Reset() override;
+		};
+	}
+}
