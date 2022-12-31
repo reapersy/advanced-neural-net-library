@@ -21,3 +21,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 #include "Regularizers.h"
 
 namespace nn
+{
+	namespace regularizer
+	{
+		void L1Regularizer::Regularize(const Matrix& weights, Matrix& gradient) const
+		{
+			gradient += Matrix::Map(weights, [l1 = m_L1](do
