@@ -18,4 +18,12 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 */
 
-#includ
+#include "Regularizers.h"
+
+namespace nn
+{
+	namespace regularizer
+	{
+		void L1L2Regularizer::Regularize(const Matrix& weights, Matrix& gradient) const
+		{
+			gradient += Matrix::Map(weights,
