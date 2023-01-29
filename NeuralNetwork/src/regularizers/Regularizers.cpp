@@ -22,4 +22,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 
 namespace nn
 {
-	std::share
+	std::shared_ptr<regularizer::Regularizer> RegularizerFactory::BuildRegularizer(regularizer::Type type)
+	{
+		switch (type)
+		{
+		case regularizer::NONE:
+			return std::make_
