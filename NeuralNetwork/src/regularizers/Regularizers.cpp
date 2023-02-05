@@ -27,4 +27,8 @@ namespace nn
 		switch (type)
 		{
 		case regularizer::NONE:
-			return std::make_
+			return std::make_shared<regularizer::Regularizer>();
+		case regularizer::L1:
+			return std::make_shared<regularizer::L1Regularizer>();
+		case regularizer::L2:
+			return std::make_shared<regularizer::L2Re
