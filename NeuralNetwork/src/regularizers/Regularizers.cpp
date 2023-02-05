@@ -31,4 +31,11 @@ namespace nn
 		case regularizer::L1:
 			return std::make_shared<regularizer::L1Regularizer>();
 		case regularizer::L2:
-			return std::make_shared<regularizer::L2Re
+			return std::make_shared<regularizer::L2Regularizer>();
+		case regularizer::L1L2:
+			return std::make_shared<regularizer::L1L2Regularizer>();
+		default:
+			return nullptr;
+		}
+	}
+}
