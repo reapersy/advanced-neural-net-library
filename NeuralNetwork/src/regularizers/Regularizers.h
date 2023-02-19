@@ -28,4 +28,13 @@ namespace nn
 	{
 		enum Type
 		{
-			NONE, L1, L2,
+			NONE, L1, L2, L1L2
+		};
+
+		class Regularizer
+		{
+		public:
+			virtual void Regularize(const Matrix& weights, Matrix& gradient) const {}
+		};
+
+		class L1Regularizer : public Regularizer
