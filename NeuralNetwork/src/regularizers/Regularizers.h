@@ -48,3 +48,11 @@ namespace nn
 		class L2Regularizer : public Regularizer
 		{
 		private:
+			double m_L2 = 0.01;
+		public:
+			void Regularize(const Matrix& weights, Matrix& gradient) const override;
+		};
+
+		class L1L2Regularizer : public Regularizer
+		{
+		private:
