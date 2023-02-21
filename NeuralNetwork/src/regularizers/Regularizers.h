@@ -63,4 +63,9 @@ namespace nn
 		};
 	}
 
-	class RegularizerFacto
+	class RegularizerFactory
+	{
+	public:
+		static std::shared_ptr<regularizer::Regularizer> BuildRegularizer(regularizer::Type type);
+	};
+}
