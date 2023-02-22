@@ -10,4 +10,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HandwrittenDigitsRecognition", "Examples\HandwrittenDigitsRecognition\HandwrittenDigitsRecognition.vcxproj", "{A2F46E84-0778-42E2-B213-F5911F1500A2}"
 EndProject
 Global
-	G
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSecti
