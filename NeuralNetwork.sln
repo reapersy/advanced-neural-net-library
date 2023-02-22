@@ -7,4 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NeuralNetwork", "NeuralNetw
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XorExample", "Examples\XorExample\XorExample.vcxproj", "{59283145-DB43-438F-B657-FFD0D4C1C44D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HandwrittenDigitsRec
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HandwrittenDigitsRecognition", "Examples\HandwrittenDigitsRecognition\HandwrittenDigitsRecognition.vcxproj", "{A2F46E84-0778-42E2-B213-F5911F1500A2}"
+EndProject
+Global
+	G
