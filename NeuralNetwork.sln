@@ -43,4 +43,7 @@ Global
 		{A2F46E84-0778-42E2-B213-F5911F1500A2}.Release|x86.ActiveCfg = Release|Win32
 		{A2F46E84-0778-42E2-B213-F5911F1500A2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSoluti
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
