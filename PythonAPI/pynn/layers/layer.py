@@ -1,3 +1,4 @@
+
 """
 Statically-linked deep learning library
 Copyright (C) 2020 Dušan Erdeljan, Nedeljko Vignjević
@@ -13,16 +14,3 @@ This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>
-"""
-
-activation_functions = {
-    'sigmoid': 0,
-    'relu': 1,
-    'leaky_relu': 2,
-    'elu': 3,
-    'tahn': 4,
-    'softmax': 5
-}
