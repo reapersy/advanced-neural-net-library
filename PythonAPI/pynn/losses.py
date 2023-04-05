@@ -19,8 +19,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>
 """
 
-activation_functions = {
-    'sigmoid': 0,
-    'relu': 1,
-    'leaky_relu': 2
+losses = {
+    'mean_absolute_error': 0,
+    'mean_squared_error': 1,
+    'quadratic': 2,
+    'half_quadratic': 3,
+    'cross_entropy': 4,
+    'nll': 5
 }
