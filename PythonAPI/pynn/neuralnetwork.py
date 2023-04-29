@@ -20,4 +20,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 
 from pynn.util.dll import DLLUtil
 from pynn.layers.dense import Dense
-from pynn.type.outp
+from pynn.type.output import Output
+from pynn import optimizers, losses, regularizers, weightinitializers
+from pynn.validation import validate_compile, validate_fit
+from pynn.state import State
+imp
