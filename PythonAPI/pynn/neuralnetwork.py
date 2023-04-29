@@ -24,4 +24,13 @@ from pynn.type.output import Output
 from pynn import optimizers, losses, regularizers, weightinitializers
 from pynn.validation import validate_compile, validate_fit
 from pynn.state import State
-imp
+import numpy as np
+import ctypes as C
+import pickle
+import os
+
+
+class NeuralNetwork(object):
+
+    def __init__(self, layers=None):
+        self._lib = DLL
