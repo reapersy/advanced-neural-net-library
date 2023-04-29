@@ -33,4 +33,10 @@ import os
 class NeuralNetwork(object):
 
     def __init__(self, layers=None):
-        self._lib = DLL
+        self._lib = DLLUtil.load_dll()
+        self._layers = None
+        self._compiled = False
+        self._state = State()
+        if layers:
+            for layer in layers:
+          
