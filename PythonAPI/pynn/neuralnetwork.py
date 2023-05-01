@@ -39,4 +39,9 @@ class NeuralNetwork(object):
         self._state = State()
         if layers:
             for layer in layers:
-          
+                self.add(layer)
+
+    def add(self, layer: Dense):
+        if not self._layers:
+            if layer.inputs <= 0:
+                raise Exception("Invalid layer 
