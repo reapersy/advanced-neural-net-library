@@ -52,4 +52,8 @@ class NeuralNetwork(object):
             layer.inputs = self._layers[-1].neurons
             self._layers.append(layer)
         self._state.add_layer(layer)
-        self._compiled = F
+        self._compiled = False
+
+    def fit(self, x_train: np.ndarray, y_train: np.ndarray, epochs: int, batch_size: int = 1):
+        if not self._compiled:
+            raise Exception("Model is not compil
