@@ -44,4 +44,8 @@ class NeuralNetwork(object):
     def add(self, layer: Dense):
         if not self._layers:
             if layer.inputs <= 0:
-                raise Exception("Invalid layer 
+                raise Exception("Invalid layer inputs.")
+            self._layers = [layer]
+        elif self._layers[-1].neurons != layer.inputs and layer.inputs != 0:
+            raise Exception("Invalid layer inputs.")
+ 
