@@ -56,4 +56,8 @@ class NeuralNetwork(object):
 
     def fit(self, x_train: np.ndarray, y_train: np.ndarray, epochs: int, batch_size: int = 1):
         if not self._compiled:
-            raise Exception("Model is not compil
+            raise Exception("Model is not compiled.")
+        validate_fit(epochs, batch_size)
+        for x, y in zip(x_train, y_train):
+            self._lib.add_training_sample(np.asarray(x, dtype=np.double),
+                      
