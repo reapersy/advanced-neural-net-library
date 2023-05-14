@@ -48,4 +48,8 @@ class NeuralNetwork(object):
             self._layers = [layer]
         elif self._layers[-1].neurons != layer.inputs and layer.inputs != 0:
             raise Exception("Invalid layer inputs.")
- 
+        else:
+            layer.inputs = self._layers[-1].neurons
+            self._layers.append(layer)
+        self._state.add_layer(layer)
+        self._compiled = F
