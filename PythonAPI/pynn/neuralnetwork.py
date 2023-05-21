@@ -60,4 +60,7 @@ class NeuralNetwork(object):
         validate_fit(epochs, batch_size)
         for x, y in zip(x_train, y_train):
             self._lib.add_training_sample(np.asarray(x, dtype=np.double),
-                      
+                                          np.asarray(y if np.isscalar(y) else [y], dtype=np.double))
+        self._lib.train(C.c_uint(epochs), C.c_uint(batch_size))
+
+    def predict(self
