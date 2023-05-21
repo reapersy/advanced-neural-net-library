@@ -63,4 +63,7 @@ class NeuralNetwork(object):
                                           np.asarray(y if np.isscalar(y) else [y], dtype=np.double))
         self._lib.train(C.c_uint(epochs), C.c_uint(batch_size))
 
-    def predict(self
+    def predict(self, inputs: np.array) -> Output:
+        return self._lib.eval(np.asarray(inputs, dtype=np.double))
+
+    def _update_state(self, optimizer, loss, initializer, r
