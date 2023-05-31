@@ -66,4 +66,7 @@ class NeuralNetwork(object):
     def predict(self, inputs: np.array) -> Output:
         return self._lib.eval(np.asarray(inputs, dtype=np.double))
 
-    def _update_state(self, optimizer, loss, initializer, r
+    def _update_state(self, optimizer, loss, initializer, regularizer):
+        self._state.update(optimizer, loss, initializer, regularizer, self._layers[0].inputs, self._layers[-1].neurons)
+
+    def compile(self, optimizer='sgd', loss='mean_squ
