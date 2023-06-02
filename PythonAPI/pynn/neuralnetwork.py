@@ -75,4 +75,7 @@ class NeuralNetwork(object):
         validate_compile(optimizer, loss, initializer, regularizer)
         for layer in self._layers:
             self._lib.add(layer)
-        self._update_state(optimizer, loss, i
+        self._update_state(optimizer, loss, initializer, regularizer)
+        if isinstance(optimizer, str):
+            self._lib.compile(optimizers.optimizers[optimizer], losses.losses[loss],
+              
