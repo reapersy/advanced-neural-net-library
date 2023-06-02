@@ -72,4 +72,7 @@ class NeuralNetwork(object):
     def compile(self, optimizer='sgd', loss='mean_squared_error', initializer='random', regularizer='none'):
         if not self._layers:
             raise Exception("No layers specified.")
-        validate_compile(optimiz
+        validate_compile(optimizer, loss, initializer, regularizer)
+        for layer in self._layers:
+            self._lib.add(layer)
+        self._update_state(optimizer, loss, i
