@@ -78,4 +78,7 @@ class NeuralNetwork(object):
         self._update_state(optimizer, loss, initializer, regularizer)
         if isinstance(optimizer, str):
             self._lib.compile(optimizers.optimizers[optimizer], losses.losses[loss],
-              
+                              weightinitializers.weight_initializers[initializer],
+                              regularizers.regularizers[regularizer])
+        else:
+            self._l
