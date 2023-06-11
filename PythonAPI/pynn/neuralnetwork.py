@@ -81,4 +81,5 @@ class NeuralNetwork(object):
                               weightinitializers.weight_initializers[initializer],
                               regularizers.regularizers[regularizer])
         else:
-            self._l
+            self._lib.compile_optimizer(C.byref(optimizer), optimizers.optimizers[optimizer.__class__.__name__.lower()],
+                                        losses.loss
