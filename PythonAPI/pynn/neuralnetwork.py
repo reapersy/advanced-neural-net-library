@@ -84,4 +84,9 @@ class NeuralNetwork(object):
             self._lib.compile_optimizer(C.byref(optimizer), optimizers.optimizers[optimizer.__class__.__name__.lower()],
                                         losses.losses[loss],
                                         weightinitializers.weight_initializers[initializer],
-                                        regularizers.regul
+                                        regularizers.regularizers[regularizer])
+        self._compiled = True
+
+    def save(self, file_path: str):
+        if not self._compiled:
+            raise Exception("Model is not compiled.
