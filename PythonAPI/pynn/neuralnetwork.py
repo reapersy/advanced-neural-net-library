@@ -101,4 +101,6 @@ class NeuralNetwork(object):
         if not (os.path.exists(file_path) or os.path.exists(state_file_path)):
             raise Exception("Invalid model file path.")
         net = NeuralNetwork()
-     
+        net._lib.load(C.c_char_p(bytes(os.path.abspath(file_path), encoding='utf-8')))
+        with open(state_file_path, 'rb') as file:
+            net._state = pickl
