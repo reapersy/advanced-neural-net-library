@@ -91,4 +91,6 @@ class NeuralNetwork(object):
         if not self._compiled:
             raise Exception("Model is not compiled.")
         self._lib.save(C.c_char_p(bytes(os.path.abspath(file_path), encoding='utf-8')))
-        state_file_path = os.path.join(os.path.dirname(file_path)
+        state_file_path = os.path.join(os.path.dirname(file_path), ".state." + os.path.basename(file_path))
+        with open(state_file_path, 'wb') as state_file:
+            pickle.dump(self._state, state_file, pickle.H
