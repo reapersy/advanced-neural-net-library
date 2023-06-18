@@ -98,3 +98,7 @@ class NeuralNetwork(object):
     @staticmethod
     def load(file_path: str):
         state_file_path = os.path.join(os.path.dirname(file_path), ".state." + os.path.basename(file_path))
+        if not (os.path.exists(file_path) or os.path.exists(state_file_path)):
+            raise Exception("Invalid model file path.")
+        net = NeuralNetwork()
+     
