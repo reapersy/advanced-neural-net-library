@@ -103,4 +103,7 @@ class NeuralNetwork(object):
         net = NeuralNetwork()
         net._lib.load(C.c_char_p(bytes(os.path.abspath(file_path), encoding='utf-8')))
         with open(state_file_path, 'rb') as file:
-            net._state = pickl
+            net._state = pickle.load(file)
+        net._compiled = True
+        net._lib.state_loaded(C.byref(net._state._optimizer),
+                              optimizers.optimizers[net._state._opt
