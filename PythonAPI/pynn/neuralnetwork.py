@@ -106,4 +106,6 @@ class NeuralNetwork(object):
             net._state = pickle.load(file)
         net._compiled = True
         net._lib.state_loaded(C.byref(net._state._optimizer),
-                              optimizers.optimizers[net._state._opt
+                              optimizers.optimizers[net._state._optimizer.__class__.__name__.lower()],
+                              regularizers.regularizers[net._state._regularizer], C.c_uint(net._state._input_size),
+        
