@@ -108,4 +108,9 @@ class NeuralNetwork(object):
         net._lib.state_loaded(C.byref(net._state._optimizer),
                               optimizers.optimizers[net._state._optimizer.__class__.__name__.lower()],
                               regularizers.regularizers[net._state._regularizer], C.c_uint(net._state._input_size),
-        
+                              C.c_uint(net._state._output_size))
+        return net
+
+
+def evaluate(model):
+    output: Output = model.predict(np.array(
