@@ -113,4 +113,10 @@ class NeuralNetwork(object):
 
 
 def evaluate(model):
-    output: Output = model.predict(np.array(
+    output: Output = model.predict(np.array([0, 1]))
+    print(f"0 XOR 1 = {output.value}")
+
+    output: Output = model.predict(np.array([0, 0]))
+    print(f"0 XOR 0 = {output.value}")
+
+    
