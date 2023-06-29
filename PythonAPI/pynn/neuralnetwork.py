@@ -119,4 +119,8 @@ def evaluate(model):
     output: Output = model.predict(np.array([0, 0]))
     print(f"0 XOR 0 = {output.value}")
 
-    
+    output: Output = model.predict(np.array([1, 0]))
+    print(f"1 XOR 0 = {output.value}")
+
+    output: Output = model.predict(np.array([1, 1]))
+    print(f"1 XOR 1 = {ou
