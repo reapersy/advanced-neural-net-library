@@ -131,3 +131,9 @@ if __name__ == "__main__":
     y = [[1], [0], [1], [0]]
     model = NeuralNetwork([
         Dense(4, 'sigmoid', inputs=2),
+        Dense(4, 'sigmoid'),
+        Dense(1, 'sigmoid')
+    ])
+    # model.add(Dense(4, 'sigmoid', inputs=2))
+    # model.add(Dense(4, 'sigmoid'))
+    # 
