@@ -123,4 +123,11 @@ def evaluate(model):
     print(f"1 XOR 0 = {output.value}")
 
     output: Output = model.predict(np.array([1, 1]))
-    print(f"1 XOR 1 = {ou
+    print(f"1 XOR 1 = {output.value}")
+
+
+if __name__ == "__main__":
+    x = [[0, 1], [0, 0], [1, 0], [1, 1]]
+    y = [[1], [0], [1], [0]]
+    model = NeuralNetwork([
+        Dense(4, 'sigmoid', inputs=2),
