@@ -136,4 +136,7 @@ if __name__ == "__main__":
     ])
     # model.add(Dense(4, 'sigmoid', inputs=2))
     # model.add(Dense(4, 'sigmoid'))
-    # 
+    # model.add(Dense(1, 'sigmoid'))
+    model.compile(optimizer='adam', loss='quadratic',
+                  initializer='xavier_normal', regularizer='none')
+    model.fit(np.array(x), 
