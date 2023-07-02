@@ -143,4 +143,4 @@ if __name__ == "__main__":
     evaluate(model)
     model.save('model.bin')
     # model = NeuralNetwork.load('model.bin')
-    # evaluate(model
+    # evaluate(model)
