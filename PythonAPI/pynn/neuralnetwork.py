@@ -139,4 +139,8 @@ if __name__ == "__main__":
     # model.add(Dense(1, 'sigmoid'))
     model.compile(optimizer='adam', loss='quadratic',
                   initializer='xavier_normal', regularizer='none')
-    model.fit(np.array(x), 
+    model.fit(np.array(x), np.array(y), epochs=1000, batch_size=1)
+    evaluate(model)
+    model.save('model.bin')
+    # model = NeuralNetwork.load('model.bin')
+    # evaluate(model
