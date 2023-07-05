@@ -179,3 +179,48 @@ class Adamax(Optimizer):
 class AMSGrad(Optimizer):
     _fields_ = [
         ('lr', C.c_double),
+        ('beta1', C.c_double),
+        ('beta2', C.c_double)
+    ]
+
+    def __init__(self, lr=default_lr, beta1=0.9, beta2=0.999):
+        super(AMSGrad, self).__init__()
+        self.lr = C.c_double(lr)
+        self.beta1 = C.c_double(beta1)
+        self.beta1 = C.c_double(beta2)
+
+
+class Adabound(Optimizer):
+    _fields_ = [
+        ('lr', C.c_double),
+        ('beta1', C.c_double),
+        ('beta2', C.c_double),
+        ('final_lr', C.c_double),
+        ('gamma', C.c_double)
+    ]
+
+    def __init__(self, lr=default_lr, beta1=0.9, beta2=0.999, final_lr=0.1, gamma=1e-3):
+        super(Adabound, self).__init__()
+        self.lr = C.c_double(lr)
+        self.beta1 = C.c_double(beta1)
+        self.beta1 = C.c_double(beta2)
+        self.final_lr = C.c_double(final_lr)
+        self.gamma = C.c_double(gamma)
+
+
+class AMSBound(Optimizer):
+    _fields_ = [
+        ('lr', C.c_double),
+        ('beta1', C.c_double),
+        ('beta2', C.c_double),
+        ('final_lr', C.c_double),
+        ('gamma', C.c_double)
+    ]
+
+    def __init__(self, lr=default_lr, beta1=0.9, beta2=0.999, final_lr=0.1, gamma=1e-3):
+        super(AMSBound, self).__init__()
+        self.lr = C.c_double(lr)
+        self.beta1 = C.c_double(beta1)
+        self.beta1 = C.c_double(beta2)
+        self.final_lr = C.c_double(final_lr)
+        self.gamma = C.c_double(gamma)
