@@ -21,4 +21,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>
 from pynn.optimizers import get_optimizer
 
 
-clas
+class State:
+
+    def __init__(self):
+        self._optimizer = None
+        self._regularizer = None
+        self._initializer = None
+        self._loss = None
