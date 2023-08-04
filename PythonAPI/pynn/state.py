@@ -28,3 +28,9 @@ class State:
         self._regularizer = None
         self._initializer = None
         self._loss = None
+        self._input_size = 0
+        self._output_size = 0
+        self._layers = []
+
+    def add_layer(self, layer):
+        self._layers.append
