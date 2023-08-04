@@ -33,4 +33,7 @@ class State:
         self._layers = []
 
     def add_layer(self, layer):
-        self._layers.append
+        self._layers.append(layer)
+
+    def update(self, optimizer, loss, initializer, regularizer, input_size, output_size):
+        self._optimizer = get_optimizer(optimizer)
