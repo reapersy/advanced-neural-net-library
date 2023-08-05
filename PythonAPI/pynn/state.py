@@ -41,4 +41,4 @@ class State:
         self._initializer = initializer
         self._regularizer = regularizer
         self._input_size = input_size
-        self._output_siz
+        self._output_size = output_size
