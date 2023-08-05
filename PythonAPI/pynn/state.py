@@ -37,3 +37,8 @@ class State:
 
     def update(self, optimizer, loss, initializer, regularizer, input_size, output_size):
         self._optimizer = get_optimizer(optimizer)
+        self._loss = loss
+        self._initializer = initializer
+        self._regularizer = regularizer
+        self._input_size = input_size
+        self._output_siz
