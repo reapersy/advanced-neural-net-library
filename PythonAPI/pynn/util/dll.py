@@ -25,3 +25,9 @@ import numpy as np
 import os
 
 
+class DLLUtil(object):
+
+    @staticmethod
+    def load_dll() -> C.CDLL:
+        path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "../../lib/NeuralNetwork.dll")
+  
