@@ -30,4 +30,8 @@ class DLLUtil(object):
     @staticmethod
     def load_dll() -> C.CDLL:
         path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "../../lib/NeuralNetwork.dll")
-  
+        if not os.path.exists(path):
+            raise Exception("Invalid DLL path. DLL is missing.")
+        library = C.cdll.LoadLibrary(path)
+        DLLUtil._configure(library)
+        return li
