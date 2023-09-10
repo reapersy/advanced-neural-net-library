@@ -34,4 +34,10 @@ class DLLUtil(object):
             raise Exception("Invalid DLL path. DLL is missing.")
         library = C.cdll.LoadLibrary(path)
         DLLUtil._configure(library)
-        return li
+        return library
+
+    @staticmethod
+    def _configure(library: C.CDLL):
+        library.eval.argtypes = [np.ctypeslib.ndpointer(dtype=np.double)]
+        library.eval.restype = Output
+        
