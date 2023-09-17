@@ -42,4 +42,6 @@ class DLLUtil(object):
         library.eval.restype = Output
         library.add.argtypes = [C.POINTER(Dense)]
         library.add_training_sample.argtypes = [np.ctypeslib.ndpointer(dtype=np.double),
-                                       
+                                                np.ctypeslib.ndpointer(dtype=np.double)]
+        library.compile.argtypes = [C.c_uint, C.c_uint, C.c_uint, C.c_uint]
+        library.train.argtypes =
