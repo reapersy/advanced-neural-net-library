@@ -40,4 +40,6 @@ class DLLUtil(object):
     def _configure(library: C.CDLL):
         library.eval.argtypes = [np.ctypeslib.ndpointer(dtype=np.double)]
         library.eval.restype = Output
-        
+        library.add.argtypes = [C.POINTER(Dense)]
+        library.add_training_sample.argtypes = [np.ctypeslib.ndpointer(dtype=np.double),
+                                       
