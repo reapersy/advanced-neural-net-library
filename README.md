@@ -4,4 +4,6 @@ An intensive, feature-rich deep learning library written completely in C++, alon
 
 ## Features
 
-The following features 
+The following features are currently supported:
+
+ * **Optimizers**: Features variety of optimizers like SGD, SGD with Momentum, SGD with Nesterov Momentum, Adagrad, Adam, Nadam, Adamax, AMSGrad, Adadel
