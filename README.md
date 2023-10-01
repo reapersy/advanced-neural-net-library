@@ -10,4 +10,9 @@ The following features are currently supported:
  * **Activation functions**: Includes several activation functions such as Sigmoid, ReLU, Leaky ReLU, ELU, Tanh, Softmax
  * **Loss functions**: Supports various loss functions like Mean Absolute Error, Mean Squared Error, Quadratic, Half Quadratic, Cross Entropy, NLL
  * **Weight initializers**: Provides multiple weight initializers like Random, Xavier Uniform, Xavier Normal, LeCun Uniform, LeCun Normal, He Uniform, He Normal
- * **Regularizers**: Contain
+ * **Regularizers**: Contains different regularizers such as L1, L2, L1L2, None
+ * **Layers**: Fully Connected(Dense) Layer
+
+## Example usage
+
+The examples provided here give a general idea about creating
