@@ -38,4 +38,4 @@ Detailed structure follows below:
 
 ## License
 
-This program is licensed under **GNU General Public License version
+This program is licensed under **GNU General Public License version 3.0** (GPLv3) and is free for redistribution and/or modification as per the terms of the license. The license file is available in the repository.
