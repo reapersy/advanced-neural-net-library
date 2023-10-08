@@ -32,4 +32,10 @@ Detailed structure follows below:
 
 * Creating a model
 * Compiling a model
-* Traini
+* Training a model
+* Evaluating a model
+* Saving and loading a model
+
+## License
+
+This program is licensed under **GNU General Public License version
