@@ -15,4 +15,10 @@ The following features are currently supported:
 
 ## Example usage
 
-The examples provided here give a general idea about creating
+The examples provided here give a general idea about creating, training, evaluating and performing operations like save/load on a model using both C++ and Python.
+
+### C++
+
+Detailed structure follows below:
+
+* Creating a mo
