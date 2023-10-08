@@ -21,4 +21,15 @@ The examples provided here give a general idea about creating, training, evaluat
 
 Detailed structure follows below:
 
-* Creating a mo
+* Creating a model
+* Training a model
+* Evaluating a model
+* Saving and loading a model
+
+### Python
+
+Detailed structure follows below:
+
+* Creating a model
+* Compiling a model
+* Traini
